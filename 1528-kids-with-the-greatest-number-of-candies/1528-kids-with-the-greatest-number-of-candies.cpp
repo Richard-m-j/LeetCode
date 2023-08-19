@@ -7,10 +7,7 @@ public:
                 max=candies[i];
         vector <bool> result;
         for(int i=0;i<candies.size();i++)
-            if(candies[i]+extraCandies>=max)
-                result.push_back(true);
-            else
-                result.push_back(false);
+            result.push_back(candies[i]+extraCandies>=max);
         return result;
     }
 };
