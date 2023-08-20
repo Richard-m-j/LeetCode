@@ -4,7 +4,6 @@ public:
         int prev=0;
         int length= flowerbed.size();
         flowerbed.push_back(0);
-     
         for(int i=0;i<length;i++)
         {
             if(!flowerbed[i])
