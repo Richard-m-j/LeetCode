@@ -24,9 +24,10 @@ public:
                     prev=flowerbed[i];
                     i++;    
                 }
+            if(n<=0)
+                return true;
         }
-        if(n>0)
-            return false;
-        return true;
+        return false;
+        
     }
 };
