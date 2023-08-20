@@ -12,7 +12,7 @@ public:
                 i+=2;
             }
             else
-                if(prev==0&&flowerbed[i+1]==0)
+                if(prev+flowerbed[i+1]==0)
                 {
                     n--;
                     flowerbed[i]=1;
