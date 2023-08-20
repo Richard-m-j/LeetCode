@@ -4,15 +4,26 @@ public:
         int prev=0;
         int length= flowerbed.size();
         flowerbed.push_back(0);
-        for(int i=0;i<length;i++)
+        for(int i=0;i<length;)
         {
-            if(!flowerbed[i])
+            if(flowerbed[i])
+            {
+                prev=flowerbed[i+1];
+                i+=2;
+            }
+            else
                 if(prev==0&&flowerbed[i+1]==0)
                 {
                     n--;
                     flowerbed[i]=1;
-                }    
-            prev=flowerbed[i];    
+                    prev=flowerbed[i+1];
+                    i+=2; 
+                }
+                else
+                {    
+                    prev=flowerbed[i];
+                    i++;    
+                }
         }
         if(n>0)
             return false;
