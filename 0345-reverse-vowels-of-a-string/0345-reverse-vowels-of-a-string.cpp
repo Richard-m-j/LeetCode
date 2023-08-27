@@ -2,8 +2,7 @@ class Solution {
 public:
     string reverseVowels(string s) {
         int l=0;
-        int r=s.length()-1;
-        int left{-1},right{-1}; 
+        int r=s.length()-1; 
         char *str=&s[0];       
         while(l<r)
         {
