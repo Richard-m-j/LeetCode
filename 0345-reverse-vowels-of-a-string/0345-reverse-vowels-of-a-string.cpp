@@ -5,25 +5,20 @@ public:
         int r=s.length()-1;
         int left{-1},right{-1}; 
         char *str=&s[0];       
-        while(l<=r)
+        while(l<r)
         {
-            if(isVovel(str[l]))
-                left=l;
-            
-            while(right==-1&&l<r)
+            if(!isVovel(str[l]))
+                l++;
+            else if(!isVovel(str[r]))
+                r--;
+            else 
             {
-                if(isVovel(str[r]))
-                    right=r;
+                char temp=str[l];
+                str[l]=str[r];
+                str[r]=temp;
+                l++;
                 r--;
             }
-            if(left!=-1&&right!=-1)
-            {
-                char temp=str[left];
-                str[left]=str[right];
-                str[right]=temp;
-                left=right=-1;
-            }
-            l++;
         }
         string out(str);
         return out;
