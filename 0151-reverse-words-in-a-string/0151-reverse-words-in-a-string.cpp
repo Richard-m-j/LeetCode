@@ -3,7 +3,7 @@ public:
     string reverseWords(string s) {
         int left=s.length()-1;
         int right=s.length();
-        string out="";
+        string out=""; 
         while(left>=0)
         {
             if(s[left]==' '&&(left+1)==right)
