@@ -11,12 +11,10 @@ public:
         int rightProduct;
         if(key==nums.size()-1)
             rightProduct=1;
-        else
+        else 
             rightProduct=product(leftProduct*nums[key],key+1,nums,ans);
 
         ans[key]=leftProduct*rightProduct;
-        if(rightProduct==0)
-            return 0;
 
         return nums[key]*rightProduct;
         
