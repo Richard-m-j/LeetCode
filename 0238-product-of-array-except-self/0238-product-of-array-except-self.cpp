@@ -15,6 +15,8 @@ public:
             rightProduct=product(leftProduct*nums[key],key+1,nums,ans);
 
         ans[key]=leftProduct*rightProduct;
+        if(rightProduct==0)
+            return 0;
 
         return nums[key]*rightProduct;
         
