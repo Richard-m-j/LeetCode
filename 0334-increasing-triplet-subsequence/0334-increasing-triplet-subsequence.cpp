@@ -4,11 +4,11 @@ public:
         int a=INT_MAX;
         int b=INT_MAX;
 
-        for(int i=0;i<nums.size();i++)
-            if(a>=nums[i])
-                a=nums[i];
-            else if(b>=nums[i])
-                b=nums[i];
+        for(auto num: nums)
+            if(a>=num)
+                a=num;
+            else if(b>=num)
+                b=num;
             else 
                 return true;
         return false;
