@@ -2,33 +2,48 @@ class Solution {
 public:
     int compress(vector<char>& chars) {
         int n=chars.size();
-        char current=chars[0];
         int count=1;
-        int j=0;
-        for(int i=1;i<n;i++)
+        int i=0,j;
+        int index=0;
+        while(i<n)
         {
-            if(chars[i]!=current)
+            j=i+1;
+            while(j<n&&chars[i]==chars[j]&&j<n)
+                j++;
+            chars[index++]=chars[i];
+            count=j-i;
+            if(count>1)
             {
-                chars[j++]=current;
-                if(count>1)
-                {
-                    string num=to_string(count);
-                    for(int k=0;k<num.length();k++)
-                        chars[j++]=num[k];
-                }
-                current=chars[i];
-                count=1;
+                string num=to_string(count);
+                for(int k=0;k<num.length();k++)
+                    chars[index++]=num[k];
             }
-            else
-                count++;
+            i=j;
         }
-        chars[j++]=current;
-        if(count>1)
-        {
-            string num=to_string(count);
-            for(int k=0;k<num.length();k++)
-                chars[j++]=num[k];
-        }
-        return j;
+        return index;
+        // for(int i=1;i<n;i++)
+        // {
+        //     if(chars[i]!=current)
+        //     {
+        //         chars[j++]=current;
+        //         if(count>1)
+        //         {
+        //             string num=to_string(count);
+        //             for(int k=0;k<num.length();k++)
+        //                 chars[j++]=num[k];
+        //         }
+        //         current=chars[i];
+        //         count=1;
+        //     }
+        //     else
+        //         count++;
+        // }
+        // chars[j++]=current;
+        // if(count>1)
+        // {
+        //     string num=to_string(count);
+        //     for(int k=0;k<num.length();k++)
+        //         chars[j++]=num[k];
+        // }
     }
 };
