@@ -3,6 +3,7 @@ public:
     bool increasingTriplet(vector<int>& nums) {
         int a=INT_MAX;
         int b=INT_MAX;
+        ios_base::sync_with_stdio(false);
 
         for(auto num: nums)
             if(a>=num)
