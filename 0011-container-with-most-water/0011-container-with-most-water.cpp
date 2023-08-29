@@ -18,10 +18,9 @@ public:
         int shorter,current;
         while (left < right)
         {
-            shorter = min(height[left], height[right]);
-
             if (height[left] < height[right])
             {
+                shorter = height[left];
                 current = volume(height[left], height[right], right - left);
                 if (current > maxVol)
                 {
@@ -32,6 +31,7 @@ public:
             }
             else
             {
+                shorter = height[right];
                 current = volume(height[left], height[right], right - left);
                 if (current > maxVol)
                 {
