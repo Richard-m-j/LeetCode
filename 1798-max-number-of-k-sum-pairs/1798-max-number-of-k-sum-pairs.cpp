@@ -2,8 +2,6 @@ class Solution {
 public:
     int maxOperations(vector<int>& nums, int k) {
         ios_base::sync_with_stdio(false);
-        cin.tie(NULL);
-        cout.tie(NULL);
         unordered_map<int,int> umap;
         int n=nums.size();
         int count=0;
