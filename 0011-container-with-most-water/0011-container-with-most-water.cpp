@@ -10,8 +10,6 @@ public:
 
     int maxArea(vector<int> &height)
     {
-        ios_base::sync_with_stdio(false);
-
         int maxVol = 0;
         int left = 0, right = height.size() - 1;
         int shorter,current;
