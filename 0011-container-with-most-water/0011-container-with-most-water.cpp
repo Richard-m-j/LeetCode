@@ -15,14 +15,14 @@ public:
         int n = height.size();
         int maxVol = volume(height[0], height[n - 1], n - 1);
         int left = 0, right = n - 1;
-
+        int shorter,current;
         while (left < right)
         {
-            int shorter = min(height[left], height[right]);
+            shorter = min(height[left], height[right]);
 
             if (height[left] < height[right])
             {
-                int current = volume(height[left], height[right], right - left);
+                current = volume(height[left], height[right], right - left);
                 if (current > maxVol)
                 {
                     maxVol = current;
@@ -32,7 +32,7 @@ public:
             }
             else
             {
-                int current = volume(height[left], height[right], right - left);
+                current = volume(height[left], height[right], right - left);
                 if (current > maxVol)
                 {
                     maxVol = current;
