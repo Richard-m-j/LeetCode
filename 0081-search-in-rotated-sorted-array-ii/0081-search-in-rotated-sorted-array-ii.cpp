@@ -1,6 +1,7 @@
 class Solution {
 public:
     bool search(vector<int>& nums, int target) {
+        ios_base::sync_with_stdio(false);
         int l{0}, r = nums.size() - 1, m;
 
         while(l <= r) {
