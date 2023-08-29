@@ -19,6 +19,8 @@ public:
         // }
         // return count;
         ios_base::sync_with_stdio(false);
+        cin.tie(NULL);
+        cout.tie(NULL);
         sort(nums.begin(),nums.end());
         int i{0},j=nums.size()-1;
         int count{0};
