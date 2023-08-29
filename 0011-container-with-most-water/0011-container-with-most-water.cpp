@@ -41,7 +41,6 @@ public:
                     right--;
             }
         }
-
         return maxVol;
     }
 };
