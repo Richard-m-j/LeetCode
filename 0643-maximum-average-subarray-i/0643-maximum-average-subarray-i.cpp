@@ -15,6 +15,6 @@ public:
             if(max<curr)max=curr;
             
         }
-        return static_cast<double>(max)/k;
+        return (double)max/k;
     }
 };
