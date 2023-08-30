@@ -7,12 +7,12 @@ public:
         int curr=0;
         for(int i=0;i<k;i++)
            curr+=nums[i];
-           
+
         max=curr;
         for(int i=k;i<n;i++)
         {
             curr+=nums[i]-nums[i-k];
-            max=curr>max?curr:max;
+            if(max<curr)max=curr;
             
         }
         return (double)max/k;
