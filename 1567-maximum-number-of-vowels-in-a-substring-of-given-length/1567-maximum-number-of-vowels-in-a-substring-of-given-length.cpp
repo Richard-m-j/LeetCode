@@ -2,6 +2,7 @@ class Solution {
 public:
     int maxVowels(string s, int k) {
         ios_base::sync_with_stdio(false);
+        cin.tie(NULL);
         
         int n=s.length();
         int curr{0};
