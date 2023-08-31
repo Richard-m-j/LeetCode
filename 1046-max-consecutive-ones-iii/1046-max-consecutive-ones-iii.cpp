@@ -22,7 +22,8 @@ public:
             }
             else 
                 curr++;
-            longest=max(longest,curr);
+            if(longest<curr)
+                longest =curr;
         }
         return longest;
     }
