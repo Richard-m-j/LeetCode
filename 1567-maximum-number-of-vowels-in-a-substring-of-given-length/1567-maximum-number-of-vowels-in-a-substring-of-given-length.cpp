@@ -14,18 +14,20 @@ public:
         for(int i=0;i<k;i++)
             if(mp[s[i]])
                 curr++;
-        int max=curr;
+        int high=curr;
         for(int i=k;i<n;i++)
         {
-            if(mp[s[i]]&&!mp[s[i-k]])
-            {
-                curr++;
-                if(curr>max)
-                    max=curr;           
-            }
-            else if(!mp[s[i]]&&mp[s[i-k]])
-                curr--;
+            // if(mp[s[i]]&&!mp[s[i-k]])
+            // {
+            //     curr++;
+            //     if(curr>max)
+            //         max=curr;           
+            // }
+            // else if(!mp[s[i]]&&mp[s[i-k]])
+            //     curr--;
+
+            high=max(high,curr+=mp[s[i]]-mp[s[i-k]]);
         }
-        return max;
+        return high;
     }
 };
