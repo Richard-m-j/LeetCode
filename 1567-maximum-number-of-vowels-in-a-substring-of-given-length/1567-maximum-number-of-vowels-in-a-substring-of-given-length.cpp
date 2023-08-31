@@ -10,6 +10,7 @@ public:
                 curr++;
         int max=curr;
         for(int i=k;i<n;i++)
+        {
             if(isVowel(s[i])&&!isVowel(s[i-k]))
             {
                 curr++;
@@ -18,6 +19,7 @@ public:
             }
             else if(!isVowel(s[i])&&isVowel(s[i-k]))
                 curr--;
+        }
         return max;
     }
     bool isVowel(char c)
