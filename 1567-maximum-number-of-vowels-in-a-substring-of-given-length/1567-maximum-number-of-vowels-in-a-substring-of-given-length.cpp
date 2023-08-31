@@ -1,13 +1,23 @@
 class Solution {
 public:
-    bool mp[128]={};
-    string vowels ="aeiou";
+    std::array<bool, 128> initializeIsLowerVowel() 
+    {
+    std::array<bool, 128> isLowerVowel = {}; // Initialize all to false
+
+    // Initialize lowercase vowels to true
+    isLowerVowel['a'] = true;
+    isLowerVowel['e'] = true;
+    isLowerVowel['i'] = true;
+    isLowerVowel['o'] = true;
+    isLowerVowel['u'] = true;
+
+    return isLowerVowel;
+    }
     int maxVowels(string s, int k) {
         ios_base::sync_with_stdio(false);
         cin.tie(NULL);
         
-        for(auto &ch :vowels)
-            mp[ch]=true;
+        std::array<bool, 128> mp = initializeIsLowerVowel();
         int n=s.length();
         int curr{0};
         int high{0};
