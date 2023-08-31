@@ -3,10 +3,7 @@ public:
     int longestOnes(vector<int>& nums, int k) {
         ios_base::sync_with_stdio(false);
 
-        int numZero=k;
-        int n=nums.size();
-        int longest{0};
-        int curr{0};
+        int numZero=k,n=nums.size(),longest{0},curr{0};
 
         for(int i=0;i<n;i++)
         {
