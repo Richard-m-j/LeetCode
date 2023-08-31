@@ -1,14 +1,13 @@
 class Solution {
 public:
-    bool mp[128];
+    bool mp[128]={};
+    string vowels ="aeiou";
     int maxVowels(string s, int k) {
         ios_base::sync_with_stdio(false);
         cin.tie(NULL);
-        mp['a']=true;
-        mp['e']=true;
-        mp['i']=true;
-        mp['o']=true;
-        mp['u']=true;
+        
+        for(auto &ch :vowels)
+            mp[ch]=true;
         int n=s.length();
         int curr{0};
         int high{0};
