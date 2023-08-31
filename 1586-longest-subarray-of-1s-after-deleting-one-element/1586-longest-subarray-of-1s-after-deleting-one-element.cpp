@@ -4,7 +4,7 @@ public:
         ios_base::sync_with_stdio(false);
         cin.tie(NULL);
         cout.tie(NULL);
-        int longest{0},left{0},curr{0},n=nums.size();
+        int longest{0},left{0},n=nums.size();
         int deleted=-1;
         for(int i=0;i<n&&deleted!=-1;i++)
             if(nums[i]==0)
