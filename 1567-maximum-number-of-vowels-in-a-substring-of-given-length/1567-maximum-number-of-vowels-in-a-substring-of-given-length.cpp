@@ -9,9 +9,8 @@ public:
         for(auto &ch :vowels)
             mp[ch]=true;
         int n=s.length();
-        int curr{0};
         int high{0};
-        for(int i=0;i<n;i++)
+        for(int i=0,curr{0};i<n;i++)
             high=max(high,curr+=mp[s[i]]-(i-k>-1 && mp[s[i-k]]));
 
         return high;
