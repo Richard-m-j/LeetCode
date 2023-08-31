@@ -11,11 +11,8 @@ public:
         mp['u']=true;
         int n=s.length();
         int curr{0};
-        for(int i=0;i<k;i++)
-            if(mp[s[i]])
-                curr++;
-        int high=curr;
-        for(int i=k;i<n;i++)
+        int high{0};
+        for(int i=0;i<n;i++)
         {
             // if(mp[s[i]]&&!mp[s[i-k]])
             // {
@@ -26,7 +23,7 @@ public:
             // else if(!mp[s[i]]&&mp[s[i-k]])
             //     curr--;
 
-            high=max(high,curr+=mp[s[i]]-mp[s[i-k]]);
+            high=max(high,curr+=mp[s[i]]-(i-k>-1 && mp[s[i-k]]));
         }
         return high;
     }
