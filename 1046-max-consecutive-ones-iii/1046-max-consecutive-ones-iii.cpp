@@ -1,6 +1,8 @@
 class Solution {
 public:
     int longestOnes(vector<int>& nums, int k) {
+        ios_base::sync_with_stdio(false);
+        cin.tie(NULL);
         int numZero=k;
         int n=nums.size();
         int longest{0};
