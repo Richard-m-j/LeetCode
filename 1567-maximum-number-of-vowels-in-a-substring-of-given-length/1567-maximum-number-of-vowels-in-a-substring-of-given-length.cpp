@@ -17,16 +17,16 @@ public:
         int high=curr;
         for(int i=k;i<n;i++)
         {
-            // if(mp[s[i]]&&!mp[s[i-k]])
-            // {
-            //     curr++;
-            //     if(curr>max)
-            //         max=curr;           
-            // }
-            // else if(!mp[s[i]]&&mp[s[i-k]])
-            //     curr--;
+            if(mp[s[i]]&&!mp[s[i-k]])
+            {
+                curr++;
+                if(curr>high)
+                    high=curr;           
+            }
+            else if(!mp[s[i]]&&mp[s[i-k]])
+                curr--;
 
-            high=max(high,curr+=mp[s[i]]-mp[s[i-k]]);
+            //high=max(high,curr+=mp[s[i]]-mp[s[i-k]]);
         }
         return high;
     }
