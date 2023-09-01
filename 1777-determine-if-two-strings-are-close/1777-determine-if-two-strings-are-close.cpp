@@ -1,6 +1,9 @@
 class Solution {
 public:
     bool closeStrings(string word1, string word2) {
+        ios_base::sync_with_stdio(false);
+        cin.tie(NULL);
+        cout.tie(NULL);
         if(word1.length()!=word2.length())
             return false;
         unordered_map <int,int> f1,f2;
@@ -29,10 +32,6 @@ public:
         if(list1!=list2)
             return false;
 
-
-               
-
-        
         return true;
     }
 };
