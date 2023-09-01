@@ -21,9 +21,6 @@ public:
             if(!f2[i-'a'])
                 return false;
         
-        vector <int> list1,list2;
-
-        
         sort(f1,f1+26);
         sort(f2,f2+26);
 
