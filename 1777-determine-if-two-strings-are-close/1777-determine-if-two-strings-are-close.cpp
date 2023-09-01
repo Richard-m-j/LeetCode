@@ -25,7 +25,6 @@ public:
             if(f1[i]!=f2[i])
                 return false;
 
-
         return true;
     }
 };
