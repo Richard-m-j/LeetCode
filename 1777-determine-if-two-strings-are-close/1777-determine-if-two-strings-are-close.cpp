@@ -1,36 +1,36 @@
 class Solution {
 public:
+    int f1[26],f2[26];
     bool closeStrings(string word1, string word2) {
         ios_base::sync_with_stdio(false);
         cin.tie(NULL);
         cout.tie(NULL);
         if(word1.length()!=word2.length())
             return false;
-        unordered_map <int,int> f1,f2;
+        
         for(auto& i: word1)
-            f1[i]++;
+            f1[i-'a']++;
 
         for(auto& i: word2)
-            if(f1.find(i)==f1.end())
+            if(!f1[i-'a'])
                 return false;
             else
-                f2[i]++;
+                f2[i-'a']++;
 
         for(auto& i: word1)
-            if(f2.find(i)==f2.end())
+            if(!f2[i-'a'])
                 return false;
         
         vector <int> list1,list2;
 
-        for(auto& i: f1)
-            list1.push_back(i.second);
-        for(auto& i: f2)
-            list2.push_back(i.second);
-        sort(list1.begin(),list1.end());
-        sort(list2.begin(),list2.end());
+        
+        sort(f1,f1+26);
+        sort(f2,f2+26);
 
-        if(list1!=list2)
-            return false;
+        for(int i=0;i<26;i++)
+            if(f1[i]!=f2[i])
+                return false;
+
 
         return true;
     }
