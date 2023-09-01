@@ -23,10 +23,10 @@ public:
         sort(f1,f1+26);
         sort(f2,f2+26);
 
-        for(int i=0;i<26;i++)
-            if(f1[i]!=f2[i])
-                return false;
+        // for(int i=0;i<26;i++)
+        //     if(f1[i]!=f2[i])
+        //         return false;
 
-        return true;
+        return memcmp(f1, f2, sizeof(f1)) == 0;
     }
 };
