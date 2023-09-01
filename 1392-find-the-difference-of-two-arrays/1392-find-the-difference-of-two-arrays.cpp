@@ -8,10 +8,10 @@ public:
         cout.tie(NULL);
         vector <int> list1,list2;
 
-        for(auto& i: nums1)
+        for(int i: nums1)
             inNums1[1000+i]=true;
         
-        for(auto& i: nums2)
+        for(int i: nums2)
             if(!inNums2[1000+i]&&!inNums1[1000+i])
             {
                 inNums2[1000+i]=true;
@@ -20,7 +20,7 @@ public:
             else if(!inNums2[1000+i])
                 inNums2[1000+i]=true;
 
-        for(auto& i: nums1)
+        for(int i: nums1)
             if(!inNums2[1000+i]&&inNums1[1000+i])
             {
                 inNums1[1000+i]=false;
