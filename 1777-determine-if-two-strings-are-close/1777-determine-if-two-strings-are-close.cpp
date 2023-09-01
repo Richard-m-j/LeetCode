@@ -10,10 +10,10 @@ public:
         if(word1.length()!=word2.length())
             return false;
         
-        for(auto& i: word1)
+        for(char i: word1)
             f1[i-'a']++;
 
-        for(auto& i: word2)
+        for(char i: word2)
             f2[i-'a']++;
 
         for(int i=0;i<26;i++)
