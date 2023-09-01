@@ -12,13 +12,10 @@ public:
             f1[i-'a']++;
 
         for(auto& i: word2)
-            if(!f1[i-'a'])
-                return false;
-            else
-                f2[i-'a']++;
+            f2[i-'a']++;
 
-        for(auto& i: word1)
-            if(!f2[i-'a'])
+        for(int i=0;i<26;i++)
+            if(f1[i]>0&&!f2[i]||f2[i]>0&&!f1[i])
                 return false;
         
         sort(f1,f1+26);
