@@ -16,8 +16,6 @@ public:
             }
             j++;
         }
-        // if(i==-1)
-        //     return "";
         return s.substr(0,i);
     }
 };
