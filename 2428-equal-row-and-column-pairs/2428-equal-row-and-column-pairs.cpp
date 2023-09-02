@@ -20,10 +20,19 @@
 // };
 class Solution {
 public:
+    struct VectorHash {
+        size_t operator()(const std::vector<int>& vec) const {
+            size_t hash = 0;
+            for (int num : vec) {
+                hash ^= std::hash<int>{}(num);
+            }
+            return hash;
+        }
+    };
     int equalPairs(vector<vector<int>>& grid) {
         ios_base::sync_with_stdio(false);
         cin.tie(NULL);
-        map<vector<int>, int> mp;
+        std::unordered_map<std::vector<int>, int, VectorHash> mp;
         int ans = 0;
         for(int row = 0; row < grid.size(); row++){
             mp[grid[row]]++;
