@@ -5,7 +5,7 @@ public:
     std::vector<int> asteroidCollision(std::vector<int>& asteroids) {
         ios_base::sync_with_stdio(false);
         cin.tie(NULL);
-
+        cout.tie(NULL);
         std::vector<int> stack;
 
         for (int asteroid : asteroids) {
