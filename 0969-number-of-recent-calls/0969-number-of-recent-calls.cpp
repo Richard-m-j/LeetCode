@@ -10,7 +10,7 @@ public:
         cout.tie(NULL);
         int lb=t-3000;
         requests.push(t);
-        while(!requests.empty() && requests.front()<lb)
+        while(requests.front()<lb)
             requests.pop();
         return requests.size();
     }
