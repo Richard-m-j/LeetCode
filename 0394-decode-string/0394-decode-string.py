@@ -1,24 +1,20 @@
 class Solution(object):
     def decodeString(self, s):
-        """
-        :type s: str
-        :rtype: str
-        """
-        stack=[];currNum=0;currString=''
+        stack = []
+        curr_num = 0
+        curr_string = ''
 
         for c in s:
-            if c=='[':
-                stack.append(currString)
-                stack.append(currNum)
-                currString=''
-                currNum=0
-            elif c==']':
-                num=stack.pop()
-                prevString = stack.pop()
-                currString = prevString + num*currString
+            if c == '[':
+                stack.append((curr_string, curr_num))
+                curr_num = 0
+                curr_string = ''
+            elif c == ']':
+                prev_string, num = stack.pop()
+                curr_string = prev_string + num * curr_string
             elif c.isdigit():
-                currNum = currNum*10 + int(c)
-            else :
-                currString += c
-        
-        return currString
+                curr_num = curr_num * 10 + int(c)
+            else:
+                curr_string += c
+
+        return curr_string
