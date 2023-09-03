@@ -8,9 +8,9 @@ public:
         ios_base::sync_with_stdio(false);
         cin.tie(NULL);
         cout.tie(NULL);
-        int lb=t-3000;
+
         requests.push(t);
-        while(requests.front()<lb)
+        while(requests.front()<t-3000)
             requests.pop();
         return requests.size();
     }
