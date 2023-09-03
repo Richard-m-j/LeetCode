@@ -6,6 +6,8 @@ public:
     }
     
     int ping(int t) {
+        ios_base::sync_with_stdio(false);
+        cin.tie(NULL);
         int lb=t-3000;
         requests.push_back(t);
         while(!requests.empty() && requests[0]<lb)
