@@ -1,8 +1,7 @@
 class RecentCounter {
 public:
-    queue <int> requests;
     RecentCounter() {
-        requests={};
+        
     }
     
     int ping(int t) {
@@ -15,6 +14,8 @@ public:
             requests.pop();
         return requests.size();
     }
+private:
+    queue <int> requests;
 };
 
 /**
