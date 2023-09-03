@@ -1,6 +1,6 @@
 class RecentCounter {
 public:
-    vector <int> requests;
+    queue <int> requests;
     RecentCounter() {
         requests={};
     }
@@ -9,9 +9,9 @@ public:
         ios_base::sync_with_stdio(false);
         cin.tie(NULL);
         int lb=t-3000;
-        requests.push_back(t);
-        while(!requests.empty() && requests[0]<lb)
-            requests.erase(requests.begin());
+        requests.push(t);
+        while(!requests.empty() && requests.front()<lb)
+            requests.pop();
         return requests.size();
     }
 };
