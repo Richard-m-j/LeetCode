@@ -4,9 +4,9 @@ class RecentCounter:
         self.requests=deque()
 
     def ping(self, t: int) -> int:
-        lb=t-3000
+        
         self.requests.append(t)
-        while self.requests[0] <lb:
+        while self.requests[0] <t-3000:
             self.requests.popleft()
 
         return len(self.requests)       
