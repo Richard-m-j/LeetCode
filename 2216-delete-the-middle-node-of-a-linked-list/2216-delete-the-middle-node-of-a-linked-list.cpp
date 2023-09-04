@@ -11,12 +11,14 @@
 class Solution {
 public:
     ListNode* deleteMiddle(ListNode* head) {
-        ListNode *mid;
-        ListNode *ptr;
-        ptr=head;
-        mid=head;
+        ios_base::sync_with_stdio(false);
+        cin.tie(NULL);
+        cout.tie(NULL);
+        ListNode *mid=head;
+        ListNode *ptr=head;
+
         int n=0;
-        int midIndex=0;
+
         ptr=ptr->next;
         if(ptr==NULL)
             return NULL;
@@ -25,13 +27,10 @@ public:
             ptr=ptr->next;
             n++;
             if(n%2==0)
-            {
-                midIndex++;
                 mid=mid->next;
-            }
         }
         
-            mid->next=mid->next->next;
+        mid->next=mid->next->next;
         return head;
     }
 };
