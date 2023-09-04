@@ -1,9 +1,5 @@
 class Solution(object):
-    def predictPartyVictory(self, senate):
-        """
-        :type senate: str
-        :rtype: str
-        """ 
+    def predictPartyVictory(self, senate): 
         l = len(senate)
         banR = 0
         banD = 0
