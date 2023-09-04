@@ -8,14 +8,11 @@ class Solution:
         
         if head.next==None:
             return None
-        ptr = head.next
+        ptr = head.next.next
         mid = head
-        n=0
-        while ptr.next:
-            ptr=ptr.next
-            n+=1
-            if n%2 == 0:
-                mid=mid.next
+        while ptr and ptr.next:
+            mid=mid.next
+            ptr=ptr.next.next
         mid.next=mid.next.next
         return head
         
