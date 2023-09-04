@@ -4,27 +4,25 @@ class Solution(object):
         :type senate: str
         :rtype: str
         """ 
-        queueR=[]
-        queueD=[]
-        l=len(senate)
-        for i in range(l):
-            if senate[i] == 'R':
-                queueR+=[i]
-            else:
-                queueD+=[i]
+        l = len(senate)
+        banR = 0
+        banD = 0
         
-        while queueR and queueD:
-            indexR=queueR[0]
-            indexD=queueD[0]
-            queueR.pop(0)
-            queueD.pop(0)            
-            if indexR < indexD:
-                queueR+=[indexR+l]
-            else:
-                queueD+=[indexD+l]
+        while 'R' in senate and 'D' in senate:
+            new_senate = []
+            for senator in senate:
+                if senator == 'R':
+                    if banR > 0:
+                        banR -= 1
+                    else:
+                        banD += 1
+                        new_senate.append('R')
+                else:  # senator == 'D'
+                    if banD > 0:
+                        banD -= 1
+                    else:
+                        banR += 1
+                        new_senate.append('D')
+            senate = new_senate
         
-        if len(queueR)>len(queueD):
-            return "Radiant"
-        return "Dire"
-
-        
+        return "Radiant" if 'R' in senate else "Dire"
