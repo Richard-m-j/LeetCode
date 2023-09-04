@@ -24,7 +24,6 @@ public:
             if (store[i] > 0) 
                 nums[len++] = i-range;
 
-
         if (nums[0] > 0 || nums[len-1] < 0) 
             return ans;
         else if (len == 1) 
@@ -38,7 +37,11 @@ public:
         {
             int a = nums[i];
             if (a > 0) break;
-            int j = (store[a+range] > 1) ? i : i+1;
+            int j;
+            if(store[a+range] > 1) 
+                j= i;
+            else 
+                j=i+1;
             for (; j < len; j++) 
             {
                 int b = nums[j];
