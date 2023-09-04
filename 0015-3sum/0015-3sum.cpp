@@ -21,11 +21,9 @@ public:
                 store[nums[i]+range]++; 
         int len = 0;
         for (int i = 0; i < size; i++) 
-        {
             if (store[i] > 0) 
                 nums[len++] = i-range;
-            
-        }
+
 
         if (nums[0] > 0 || nums[len-1] < 0) 
             return ans;
