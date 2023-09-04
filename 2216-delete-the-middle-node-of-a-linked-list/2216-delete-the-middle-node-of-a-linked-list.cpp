@@ -14,14 +14,14 @@ public:
         ios_base::sync_with_stdio(false);
         cin.tie(NULL);
         cout.tie(NULL);
+        if(head==NULL||head->next==NULL)
+            return NULL;
         ListNode *mid=head;
         ListNode *ptr=head;
 
         int n=0;
 
         ptr=ptr->next;
-        if(ptr==NULL)
-            return NULL;
         while(ptr->next!=NULL)
         {
             ptr=ptr->next;
