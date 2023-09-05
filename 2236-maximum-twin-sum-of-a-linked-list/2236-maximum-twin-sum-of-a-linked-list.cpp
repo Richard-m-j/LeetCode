@@ -11,7 +11,9 @@
 class Solution {
 public:
     int pairSum(ListNode* head) {
-         
+        ios_base::sync_with_stdio(false);
+        cin.tie(nullptr);
+        cout.tie(nullptr);
         int max=INT_MIN;
         deque <int> dq;
         ListNode *ptr=head;
