@@ -15,7 +15,7 @@ public:
         cin.tie(nullptr);
         cout.tie(nullptr);
         int max=INT_MIN;
-        deque <int> dq;
+        vector <int> dq;
         ListNode *ptr=head;
         int n{0};
         while(ptr)
@@ -26,11 +26,9 @@ public:
         }
         for(int i=0;i<n/2;i++)
         {
-            int sum = dq.front()+dq.back();
+            int sum = dq[i]+dq[n-i-1];
             if(sum>max)
                 max=sum;
-            dq.pop_front();
-            dq.pop_back();
         }
         return max;
     }
