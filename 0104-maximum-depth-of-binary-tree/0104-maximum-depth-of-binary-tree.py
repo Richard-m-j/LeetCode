@@ -4,9 +4,7 @@
 #         self.val = val
 #         self.left = left
 #         self.right = right
-class Solution:
-
-    
+class Solution:    
     def dfs(self,node: Optional[TreeNode]) -> int:
         if not node:
             return 0
