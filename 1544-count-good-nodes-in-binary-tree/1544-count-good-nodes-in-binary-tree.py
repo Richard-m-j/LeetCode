@@ -6,18 +6,17 @@
 #         self.right = right
 class Solution:
     def goodNodes(self, root: TreeNode) -> int:
-        return self.recCheck(root, float('-inf'))
+        def recCheck(root,big): 
+            if not root:
+                return 0
+            good = True
+            if root.val < big:
+                good = False
+            else:
+                big = root.val
+            leftCount = recCheck(root.left,big)
+            rightCount = recCheck(root.right,big)
+            
+            return leftCount + rightCount + good
 
-    def recCheck(self,root,big) -> int: 
-        if not root:
-            return 0
-        good = True
-        if root.val < big:
-            good = False
-        else:
-            big = root.val
-        leftCount = self.recCheck(root.left,big)
-        rightCount = self.recCheck(root.right,big)
-        
-        return leftCount + rightCount + good
-        
+        return recCheck(root, float('-inf'))
