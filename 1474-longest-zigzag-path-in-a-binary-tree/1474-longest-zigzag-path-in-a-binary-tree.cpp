@@ -9,35 +9,26 @@
  *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
  * };
  */
- //root -> tryl, tryr, solvl.left, solvr.right; solvl -> tryl, root.left, solvr.right
+ 
 class Solution {
 public:
+    int ans = 0;
     int longestZigZag(TreeNode* root) {
+        ios_base::sync_with_stdio(false);
+        cin.tie(nullptr); 
         if(!root)
             return 0;
-        int ans = max(max(max(tryLeft(root->left), tryRight(root->right)), longestLeft(root->left)), longestRight(root->right));
-        root->left = NULL;
-        root->right = NULL;
+        recHelper(root->left, 0, 1);
+        recHelper(root->right, 1, 1);
         return ans;
     }
-    int tryLeft(TreeNode* node) {
+    void recHelper(TreeNode* node,bool side,int length)
+    {
         if(!node)
-            return 0;
-        return 1 + tryRight(node->right);
-    }
-    int tryRight(TreeNode* node) {
-        if(!node)
-            return 0;
-        return 1 + tryLeft(node->left);
-    }
-    int longestLeft(TreeNode* node) {
-        if(!node)
-            return 0;
-        return max(max(tryLeft(node->left), longestZigZag(node->left)), longestRight(node->right));
-    }
-    int longestRight(TreeNode* node) {
-        if(!node)
-            return 0;
-        return max(max(tryRight(node->right), longestLeft(node->left)), longestZigZag(node->right));
+            return;
+        ans = max(ans, length);
+        recHelper(node->left,0,side ? length + 1 : 1);
+        recHelper(node->right,1,!side ? length + 1 : 1);
+ 
     }
 };
