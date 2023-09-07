@@ -11,15 +11,13 @@
  */
 class Solution {
 public:
-    int count = 0;
     int pathSum(TreeNode* root, int targetSum) {
-        unordered_map<long,int> hash;
         hash[0] = 1;
-        recCount(root,hash,targetSum,0);
+        recCount(root,targetSum,0);
         return count;
 
     }
-    void recCount(TreeNode* root, unordered_map<long,int>& hash,int targetSum, long pathSum )
+    void recCount(TreeNode* root, int targetSum, long pathSum )
     {
         if(!root)
             return;
@@ -30,10 +28,12 @@ public:
         if(hash.find(x) != hash.end())
             count+= hash[x];
         hash[currentSum]++;
-        if(root->left)
-            recCount(root->left,hash,targetSum,currentSum);
-        if(root->right)
-            recCount(root->right,hash,targetSum,currentSum);
+
+        recCount(root->left,targetSum,currentSum);
+        recCount(root->right,targetSum,currentSum);
         hash[currentSum]--;        
     }
+private:
+    int count = 0;
+    unordered_map<long,int> hash;
 };
