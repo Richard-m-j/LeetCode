@@ -9,10 +9,13 @@
  *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
  * };
  */
+ 
 class Solution {
 public:
     int ans = 0;
     int longestZigZag(TreeNode* root) {
+        ios_base::sync_with_stdio(false);
+        cin.tie(nullptr); 
         if(!root)
             return 0;
         recHelper(root->left, 0, 1);
