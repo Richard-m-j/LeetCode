@@ -12,7 +12,6 @@
  
 class Solution {
 public:
-    int ans = 0;
     int longestZigZag(TreeNode* root) {
         ios_base::sync_with_stdio(false);
         cin.tie(nullptr); 
@@ -29,6 +28,7 @@ public:
         ans = max(ans, length);
         recHelper(node->left,0,side ? length + 1 : 1);
         recHelper(node->right,1,!side ? length + 1 : 1);
- 
     }
+private:
+    int ans = 0;
 };
