@@ -5,7 +5,7 @@ public:
         cin.tie(nullptr);
         cout.tie(nullptr);
         int ans = 0;
-        for (auto num : nums)
+        for (int num : nums)
             ans = ans ^ num;
         return ans;
     }
