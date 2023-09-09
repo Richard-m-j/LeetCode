@@ -12,6 +12,9 @@
 class Solution {
 public:
     int maxLevelSum(TreeNode* root) {
+        ios_base::sync_with_stdio(false);
+        cin.tie(nullptr);
+        cout.tie(nullptr);
         vector <TreeNode* > Queue;
         Queue.push_back(root);
         vector <TreeNode* >& queue = Queue;
