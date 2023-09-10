@@ -83,12 +83,6 @@ public:
     
     TreeNode* inorderSuccessor(TreeNode* node)
     {
-        // if(!node || !node->left && !node->right)
-        //     return NULL;
-        // if(!node->left)
-        //     return node->right;
-        // if(!node->right)
-        //     return node->left;
         TreeNode* ptr=node->right;
         
         while(ptr && ptr->left)
