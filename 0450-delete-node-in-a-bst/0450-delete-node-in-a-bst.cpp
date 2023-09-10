@@ -12,6 +12,9 @@
 class Solution {
 public:
     TreeNode* deleteNode(TreeNode* root, int key) {
+        ios_base::sync_with_stdio(false);
+        cin.tie(nullptr);
+        cout.tie(nullptr);
         if(!root)
             return root;
         if(root->val == key)
