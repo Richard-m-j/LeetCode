@@ -1,8 +1,8 @@
 class Solution {
 public:
     bool canVisitAllRooms(vector<vector<int>>& rooms) {
-        //ios_base::sync_with_stdio(false);
-        
+        ios_base::sync_with_stdio(false);
+        cin.tie(nullptr);
         unordered_set <int> visited;
         queue <int> roomsFound;
 
