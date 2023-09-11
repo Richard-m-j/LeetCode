@@ -3,29 +3,23 @@ public:
     bool canVisitAllRooms(vector<vector<int>>& rooms) {
         ios_base::sync_with_stdio(false);
         
-        vector<vector<int>> roomsFound;
-        roomsFound.push_back(rooms[0]);
-        vector<bool> keysFound(rooms.size(), false);
-        keysFound[0] = true;
+        unordered_set <int> visited;
+        queue <int> roomsFound;
 
-        while (!roomsFound.empty()) {
-            vector<int> room = roomsFound[0];
-            roomsFound.erase(roomsFound.begin()); // Remove the first room from the list
-
-            for (auto key : room) {
-                if (!keysFound[key]) {
-                    roomsFound.push_back(rooms[key]);
-                    keysFound[key] = true;
+        roomsFound.push(0);
+        while(!roomsFound.empty())
+        {
+            int room = roomsFound.front();
+            roomsFound.pop();
+            visited.insert(room);
+            for(auto key: rooms[room])
+            {
+                if(visited.find(key) == visited.end())
+                {
+                    roomsFound.push(key);
                 }
             }
         }
-
-        for (bool i : keysFound) {
-            if (!i) {
-                return false;
-            }
-        }
-
-        return true;
+        return rooms.size() == visited.size();
     }
 };
