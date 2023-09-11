@@ -1,6 +1,8 @@
 class Solution {
 public:
     bool canVisitAllRooms(vector<vector<int>>& rooms) {
+        ios_base::sync_with_stdio(false);
+        
         vector<vector<int>> roomsFound;
         roomsFound.push_back(rooms[0]);
         vector<bool> keysFound(rooms.size(), false);
