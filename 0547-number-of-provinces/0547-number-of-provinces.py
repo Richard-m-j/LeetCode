@@ -3,18 +3,17 @@ class Solution:
         n = len(isConnected)
         visited = [False]*n
 
-        listProvinces = []
         def helperDFS(node: int):
-            connection = {node}
             visited[node] = True
             for i in range(n):
                 if isConnected[node][i] and not visited[i]:
-                    connection.update(helperDFS(i))
-            return connection
-
+                    helperDFS(i)
+            
+        ans = 0
         for i in range(n):
             if not visited[i]:
-                listProvinces.append(helperDFS(i))
-        return len(listProvinces)
+                ans += 1
+                helperDFS(i)
+        return ans
         
 
