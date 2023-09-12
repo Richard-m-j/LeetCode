@@ -1,17 +1,17 @@
 class Solution:
     def findCircleNum(self, isConnected: List[List[int]]) -> int:
         n = len(isConnected)
-        visited = [False]*n
+        notVisited = [True]*n
 
         def helperDFS(node: int):
-            visited[node] = True
+            notVisited[node] = False
             for i in range(n):
-                if not visited[i] and isConnected[node][i]:
+                if notVisited[i] and isConnected[node][i]:
                     helperDFS(i)
             
         ans = 0
         for i in range(n):
-            if not visited[i]:
+            if notVisited[i]:
                 ans += 1
                 helperDFS(i)
         return ans
