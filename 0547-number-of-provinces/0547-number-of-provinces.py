@@ -6,7 +6,7 @@ class Solution:
         def helperDFS(node: int):
             visited[node] = True
             for i in range(n):
-                if isConnected[node][i] and not visited[i]:
+                if not visited[i] and isConnected[node][i]:
                     helperDFS(i)
             
         ans = 0
