@@ -1,13 +1,18 @@
 class Solution {
 public:
     int minReorder(int n, vector<vector<int>>& connections) {
+        ios_base::sync_with_stdio(false);
+        cin.tie(nullptr);
+        cout.tie(nullptr);
         vector <vector <pair <int, bool>>> graph(n);
 
         // Build the graph with direction information
-        for (const auto& con : connections) {
+        for (const auto& con : connections) 
+        {
             graph[con[0]].emplace_back(con[1], true);   // Forward edge
             graph[con[1]].emplace_back(con[0], false);  // Reverse edge
         }
+
 
         int ans = 0;
         vector<bool> visited(n, false);
