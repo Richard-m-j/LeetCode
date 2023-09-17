@@ -12,8 +12,6 @@ public:
             graph[con[0]].emplace_back(con[1], true);   // Forward edge
             graph[con[1]].emplace_back(con[0], false);  // Reverse edge
         }
-
-
         int ans = 0;
         vector<bool> visited(n, false);
         stack<int> stack;
