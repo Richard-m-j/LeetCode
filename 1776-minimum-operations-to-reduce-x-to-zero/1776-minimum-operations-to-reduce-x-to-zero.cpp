@@ -1,7 +1,11 @@
 class Solution {
 public:
     int minOperations(vector<int>& nums, int x) {
+        ios_base::sync_with_stdio(false);
+        cin.tie(nullptr);
+        cout.tie(nullptr);
         unordered_map <int,int> hash;
+
 
         int n = nums.size();
         int sum{0};
