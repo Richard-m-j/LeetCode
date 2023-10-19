@@ -1,6 +1,9 @@
 class Solution {
 public:
     int climbStairs(int n) {
+        ios_base::sync_with_stdio(false);
+        cin.tie(nullptr);
+        cout.tie(nullptr);
         if(n<=0)
             return 0;
         if(n==1)
