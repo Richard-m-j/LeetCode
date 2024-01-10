@@ -6,9 +6,10 @@ public:
 
         while(l<=r)
         {
-            if(target - numbers[l] == numbers[r])
+            int need = target - numbers[l];
+            if( need == numbers[r])
                 return {l+1,r+1};
-            else if(target - numbers[l] < numbers[r])
+            else if(need < numbers[r])
                 r--;
             else
                 l++;
