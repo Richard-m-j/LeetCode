@@ -8,6 +8,7 @@
  *     ListNode(int x, ListNode *next) : val(x), next(next) {}
  * };
 **/
+int speedUp = [] { ios::sync_with_stdio(0); cin.tie(0); return 0; }();
 class Solution {
 public:
     ListNode* addTwoNumbers(ListNode* l1, ListNode* l2) {
@@ -29,7 +30,7 @@ public:
         int n1 = num1.length();
         int n2 = num2.length();
         ListNode* ans = new ListNode();
-        ListNode* ptrAns = ans; // Use a separate pointer for the result list
+        ListNode* ptrAns = ans; 
         int carry = 0;
         int i = n1 - 1, j = n2 - 1;
 
