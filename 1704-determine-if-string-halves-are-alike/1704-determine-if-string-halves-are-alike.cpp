@@ -1,3 +1,4 @@
+int speedUp = [] { ios::sync_with_stdio(0); cin.tie(0); return 0; }();
 class Solution {
 private:
     unordered_map <char,bool> vowels = {{'A',true},{'E',true},{'I',true},{'O',true},{'U',true},{'a',true},{'e',true},{'i',true},{'o',true},{'u',true}};
