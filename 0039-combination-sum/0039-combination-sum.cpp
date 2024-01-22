@@ -1,33 +1,27 @@
-int speedUp = []{ios::sync_with_stdio(0);cin.tie(0);return 0;}();
 class Solution {
-private:
-    vector<vector<int>> res;
-    vector<int> candidates;
-    int target,n;
 public:
-    vector<vector<int>> combinationSum(vector<int>& c, int t) {
-        candidates = c;
-        target = t;
-        n = candidates.size();
-        helper({},0,0);
-        return res;
-        
-    }
-    void helper(vector<int> currentList, int currentSum,int i)
+    void findCombination(int i, int target, vector<int> &candidates, vector<vector<int>> &result, vector<int> &temp)
     {
-        if(i == n)
+        if(i==candidates.size())
         {
-            if(currentSum == target)
-                res.push_back(currentList);
-            return;
+            if(target==0)
+                result.push_back(temp);
+        return;
         }
-        if(candidates[i] + currentSum <= target)
+        if(candidates[i]<=target)
         {
-            currentList.push_back(candidates[i]);
-            helper(currentList,currentSum + candidates[i],i);
-            currentList.pop_back();
+            temp.push_back(candidates[i]);
+            findCombination(i,target-candidates[i],candidates,result,temp);
+            temp.pop_back();
         }
+        findCombination(i+1,target,candidates,result,temp);       
+    }
+    
+    vector<vector<int>> combinationSum(vector<int>& candidates, int target) {
+        vector<vector<int>> result;
+        vector<int> temp;
+        findCombination(0, target, candidates, result, temp);
+    return result;
         
-        helper(currentList,currentSum,i+1);
     }
 };
