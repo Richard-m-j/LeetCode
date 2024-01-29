@@ -1,6 +1,3 @@
-#include <vector>
-using namespace std;
-
 class Solution {
 private:
     int m, n, numFree = 1, walk = 0;
@@ -23,7 +20,6 @@ public:
                 }
             }
         }
-
         vector<vector<int>> visited(m, vector<int>(n, 0));
         dfs(grid, visited, start.first, start.second);
         return ans;
