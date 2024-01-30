@@ -15,7 +15,7 @@ public:
             if (row == 0 || row == numRows - 1)
                 goingDown = !goingDown;
             row += goingDown ? 1 : -1;
-            col++;
+            col += goingDown? 0: 1;
         }
 
         string res = "";
