@@ -1,3 +1,4 @@
+static const int speedUp = []{ios::sync_with_stdio(0);cin.tie(0);return 0;}();
 class Solution {
 public:
     string convert(string s, int numRows) {
