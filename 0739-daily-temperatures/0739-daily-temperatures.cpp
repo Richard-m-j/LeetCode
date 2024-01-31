@@ -1,4 +1,8 @@
-static const int speedUp = []{ios::sync_with_stdio(0);cin.tie(0);return 0;}();
+static const int ZERO = []() {
+    ios_base::sync_with_stdio(false);
+    cin.tie(nullptr);
+    return 0;
+}();
 class Solution {
 public:
     vector<int> dailyTemperatures(vector<int>& temperatures) {
