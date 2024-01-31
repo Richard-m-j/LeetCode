@@ -8,7 +8,7 @@ public:
         int rowIndex = 0;
         bool goingDown = false;
         
-        for (char c : s) {
+        for (char &c : s) {
             rows[rowIndex] += c;
             
             if (rowIndex == 0 || rowIndex == numRows - 1) goingDown = !goingDown;
