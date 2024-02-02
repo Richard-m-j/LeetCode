@@ -4,6 +4,9 @@ private:
     vector<int> md = {1,12,123,1234,12345,123456,1234567,12345678,123456789,INT_MAX};
 public:
     vector<int> sequentialDigits(int low, int high) {
+        ios::sync_with_stdio(false);
+        cin.tie(nullptr);
+        cout.tie(nullptr);
         string s = to_string(low);
         int numDigits = s.length() - 1;
 
