@@ -5,21 +5,18 @@ private:
 public:
     vector<int> sequentialDigits(int low, int high) {
         string s = to_string(low);
-        int numDigits = s.length();
+        int numDigits = s.length() - 1;
 
         vector<int> res;
-        int num = md[numDigits - 1];
+        int num = md[numDigits];
         while(num<=high)
         {
             if(num >= low)
                 res.push_back(num);
             if(num%10 == 9)
-            {
-                numDigits++;
-                num = md[numDigits-1];
-            }
+                num = md[++numDigits];
             else
-                num += mp[numDigits-1];
+                num += mp[numDigits];
         }
         return res;
     }
