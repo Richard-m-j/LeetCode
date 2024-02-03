@@ -5,23 +5,19 @@ public:
         cin.tie(nullptr);
         cout.tie(nullptr);
         int n = arr.size();
-        int dp[n];
+        int dp[n + 1]; // dp[i] represents the maximum sum possible up to index i
 
-        int r, maxIndex = n - 1;
-        dp[n - 1] = arr[n - 1];
+        dp[0] = 0;
 
-        for (r = n - 2; r >= 0; r--) {
-            int maxElement = arr[r];
-            dp[r] = arr[r];
-            for (int l = 1; l <= k && r + l <= n; l++) {
-                maxElement = max(maxElement, arr[r + l - 1]);
-                if (r >= n - k)
-                    dp[r] = max(maxElement * (l), dp[r]);
-                else
-                    dp[r] = max(maxElement * (l) + dp[r + l], dp[r]);
+        for (int i = 1; i <= n; ++i) {
+            int maxElement = arr[i - 1];
+            dp[i] = dp[i - 1] + arr[i - 1]; // Initialize with single element partition sum
+            for (int j = 2; j <= k && i - j >= 0; ++j) {
+                maxElement = max(maxElement, arr[i - j]); // Update maxElement for current partition
+                dp[i] = max(dp[i], dp[i - j] + maxElement * j); // Update dp[i] considering partition size j
             }
         }
 
-        return dp[0];
+        return dp[n];
     }
 };
