@@ -13,10 +13,10 @@ public:
         for (r = n - 2; r >= 0; r--) {
             int maxElement = arr[r];
             dp[r] = arr[r];
-            for (int l = 1; l <= k && r + l <= n; l++) { 
-                maxElement = max(maxElement, arr[r + l - 1]); 
+            for (int l = 1; l <= k && r + l <= n; l++) {
+                maxElement = max(maxElement, arr[r + l - 1]);
                 if (r >= n - k)
-                    dp[r] = max(maxElement * (l), dp[r]); 
+                    dp[r] = max(maxElement * (l), dp[r]);
                 else
                     dp[r] = max(maxElement * (l) + dp[r + l], dp[r]);
             }
