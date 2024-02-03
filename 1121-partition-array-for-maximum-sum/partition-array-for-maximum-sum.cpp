@@ -5,7 +5,7 @@ public:
         cin.tie(nullptr);
         cout.tie(nullptr);
         int n = arr.size();
-        vector<int> dp(n, 0);
+        int dp[n];
 
         int r, maxIndex = n - 1;
         dp[n - 1] = arr[n - 1];
