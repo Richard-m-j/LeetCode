@@ -1,3 +1,4 @@
+static const int speedUp = []{ios::sync_with_stdio(false);cin.tie(0);return 0;}();
 class Solution {
 public:
     vector<int> findRightInterval(vector<vector<int>>& intervals) {
