@@ -1,13 +1,8 @@
-#include <string>
-#include <climits>
-#include <vector>
-
-using namespace std;
-
+static const int speedUp = []{ios::sync_with_stdio(0);cin.tie(0);return 0;}();
 class Solution {
 public:
     string minWindow(string s, string t) {
-        vector<int> tmap(128, 0); // ASCII characters
+        vector<int> tmap(128, 0); 
         int m = s.length(), n = t.length();
         for (char& c : t)
             tmap[c]++;
