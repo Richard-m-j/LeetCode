@@ -1,6 +1,8 @@
 class Solution {
 public:
     int firstUniqChar(string s) {
+        ios::sync_with_stdio(false);
+        cin.tie(nullptr);
         vector <int> mp(26,0);
         for(char&c:s)
             mp[c-'a']++;
