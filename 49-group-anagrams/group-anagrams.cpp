@@ -12,6 +12,8 @@ private:
 
 public:
     vector<vector<string>> groupAnagrams(vector<string>& strs) {
+        ios::sync_with_stdio(false);
+        cin.tie(nullptr);
         unordered_map<vector<int>, int, VectorHash> mp;
         vector<vector<string>> res;
         int index = 0;
