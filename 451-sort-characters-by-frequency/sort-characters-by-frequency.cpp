@@ -1,6 +1,8 @@
 class Solution {
 public:
     string frequencySort(string s) {
+        ios::sync_with_stdio(false);
+        cin.tie(nullptr);
         unordered_map<char, int> freqMap;
         
         for (char c : s)
@@ -10,9 +12,8 @@ public:
         sort(freqVec.begin(), freqVec.end(), customKeySort);
         
         string res = "";
-        for (auto& [ch, freq] : freqVec) {
-            res += string(freq, ch);
-        }
+        for (auto& [c, f] : freqVec) 
+            res += string(f, c);
         
         return res;
     }
