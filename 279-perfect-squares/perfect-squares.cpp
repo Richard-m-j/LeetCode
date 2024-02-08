@@ -1,6 +1,8 @@
 class Solution {
 public:
     int numSquares(int n) {
+        ios::sync_with_stdio(false);
+        cin.tie(nullptr);
         vector<int> dp(n + 1, INT_MAX);
         for (int i = 1; i * i <= n; i++)
             dp[i * i] = 1;
