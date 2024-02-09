@@ -4,7 +4,6 @@ public:
         ios::sync_with_stdio(0);
         cin.tie(0);
         int n = nums.size();
-        if (n == 0) return {}; // Handle empty input
         
         sort(nums.begin(), nums.end());
         
