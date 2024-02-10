@@ -13,9 +13,9 @@ public:
         };
         for(int i = 0; i < s.length() ;i++){
            int j = i;
-           int oddLengthVale = palin(i,j , s);
-           int evenLengthVale= palin(i , j+1 ,s);
-           cnt += (oddLengthVale + evenLengthVale);
+           int odd = palin(i,j , s);
+           int even= palin(i , j+1 ,s);
+           cnt += (odd + even);
         }
         return cnt;
         
