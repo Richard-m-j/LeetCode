@@ -1,28 +1,23 @@
 class Solution {
 public:
+    int palin(int i, int j,string &s){
+        int cnt = 0;
+        while(i >= 0 && j < s.length() && s[i] == s[j]){
+            cnt++;
+            i--;
+            j++;
+        }
+        return cnt;
+    }
     int countSubstrings(string s) {
-        int n = s.length();
-        unordered_map<string,bool> dp;
-        int count = 0;
-
-        // Single characters are palindromes
-        for (int i = 0; i < n; i++) {
-            dp[s.substr(i, 1)] = true;
-            count++;
+        int cnt = 0;
+        for(int i = 0; i < s.length() ;i++){
+           int j = i;
+           int oddLengthVale = palin(i,j , s);
+           int evenLengthVale= palin(i , j+1 ,s);
+           cnt += (oddLengthVale + evenLengthVale);
         }
-
-        // Check palindromic substrings of length 2 or more
-        for (int len = 2; len <= n; len++) {
-            for (int start = 0; start <= n - len; start++) {
-                int end = start + len - 1;
-                string sub = s.substr(start, len);
-                if ((s[start] == s[end]) && (len == 2 || dp[sub.substr(1, len - 2)])) {
-                    dp[sub] = true;
-                    count++;
-                }
-            }
-        }
-
-        return count;
+        return cnt;
+        
     }
 };
