@@ -1,23 +1,21 @@
 class Solution {
 public:
     vector<int> rearrangeArray(vector<int>& nums) {
-        ios::sync_with_stdio(false);
-        cin.tie(nullptr);
-        vector<int> pos;
-        vector<int> neg;
-        
-        for (int num : nums) {
-            if (num > 0)
-                pos.push_back(num);
-            else
-                neg.push_back(num);
+        ios_base::sync_with_stdio(false);
+        cin.tie(NULL);
+        int n = nums.size();
+        vector<int> res(n);
+        int i = 0, j = 1;
+        for (int k = 0; k < n; k++) {
+            if (nums[k] > 0) {
+                res[i] = nums[k];
+                i += 2;
+            } else {
+                res[j] = nums[k];
+                j += 2;
+            }
         }
-        
-        nums = {};
-        for(int i =0;i<pos.size();i++){
-            nums.push_back(pos[i]);
-            nums.push_back(neg[i]);
-        }
-        return nums;
+
+        return res;
     }
 };
