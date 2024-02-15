@@ -1,6 +1,8 @@
 class Solution {
 public:
     long long largestPerimeter(vector<int>& nums) {
+        ios::sync_with_stdio(0);
+        cin.tie(0);
         sort(nums.begin(), nums.end());
         long long sum = 0;
 
