@@ -9,9 +9,11 @@ public:
             int diff = heights[i + 1] - heights[i];
             if (diff > 0) {
                 bricksUsed.push(-diff);
+                //use bricks only if ladders are unavailable
                 if (bricksUsed.size() > ladders) {
-                    bricks += bricksUsed.top(); // Add bricks used to bricks available
-                    bricksUsed.pop(); // Use a ladder
+                    //since it is a minheap, the smallest number will be subtracted from bricks
+                    bricks += bricksUsed.top(); 
+                    bricksUsed.pop();
                 }
                 if (bricks < 0) {
                     return i; // Can't go further, return the current index
