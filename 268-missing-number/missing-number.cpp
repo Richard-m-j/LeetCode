@@ -1,6 +1,8 @@
 class Solution {
 public:
     int missingNumber(vector<int>& nums) {
+        ios_base::sync_with_stdio(false);
+        cin.tie(NULL);
         int n = nums.size();
         nums.push_back(10001);
         bool zero = false;
