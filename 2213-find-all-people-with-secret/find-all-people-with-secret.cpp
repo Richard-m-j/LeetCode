@@ -1,48 +1,56 @@
-// OJ: https://leetcode.com/problems/find-all-people-with-secret/
-// Author: github.com/lzl124631x
-// Time: O(MlogM + (M + N) * logN) where `M` is the length of `meetings`
-//        Can be reduced to `O(MlogM + (M + N) * alpha(N))`
-// Space: O(M + N). Can be reduced to O(N) if we make `ppl` an `unordered_set`.
-class UnionFind {
-    vector<int> id;
-public:
-    UnionFind(int n) : id(n) {
-        iota(begin(id), end(id), 0);
-    }
-    void connect(int a, int b) {
-        id[find(b)] = find(a);
-    }
-    int find(int a) {
-        return id[a] == a ? a : (id[a] = find(id[a]));
-    }
-    bool connected(int a, int b) {
-        return find(a) == find(b);
-    }
-    void reset(int a) { id[a] = a; }
-};
+#include <vector>
+#include <map>
+#include <unordered_map>
+#include <unordered_set>
+#include <queue>
+
 class Solution {
 public:
-    vector<int> findAllPeople(int n, vector<vector<int>>& A, int firstPerson) {
-        sort(begin(A), end(A), [](auto &a, auto &b) { return a[2] < b[2]; }); // Sort the meetings in ascending order of meeting time
-        UnionFind uf(n);
-        uf.connect(0, firstPerson); // Connect person 0 with the first person
-        vector<int> ppl;
-        for (int i = 0, M = A.size(); i < M; ) {
-            ppl.clear();
-            int time = A[i][2];
-            for (; i < M && A[i][2] == time; ++i) { // For all the meetings happening at the same time
-                uf.connect(A[i][0], A[i][1]); // Connect the two persons
-                ppl.push_back(A[i][0]); // Add both persons into the pool
-                ppl.push_back(A[i][1]);
+    vector<int> findAllPeople(int n, vector<vector<int>>& meetings, int firstPerson) {
+        vector<bool> can(n);  // Vector to represent whether a person can know the secret
+        can[0] = can[firstPerson] = true;  // Person 0 and the person specified by firstPerson initially know the secret
+
+        map<int, vector<pair<int, int>>> mp;  // Map to store meetings grouped by time
+
+        // Group meetings based on time
+        for (auto& meeting : meetings) 
+            mp[meeting[2]].emplace_back(meeting[0], meeting[1]); 
+
+        // Iterate through meetings
+        for (auto& [k, v] : mp) {
+            unordered_map<int, vector<int>> graph;  // Adjacency list to represent the graph of people in the meeting
+            unordered_set<int> st;  // Set to store people who currently know the secret
+
+            // Build the graph and set based on the people in the meeting
+            for (auto& [x, y] : v) {
+                graph[x].push_back(y); 
+                graph[y].push_back(x); 
+                if (can[x]) st.insert(x); 
+                if (can[y]) st.insert(y); 
             }
-            for (int n : ppl) { // For each person in the pool, check if he/she's connected with person 0.
-                if (!uf.connected(0, n)) uf.reset(n); // If not, this person doesn't have secret, reset it.
+
+            queue<int> q; 
+
+            // Initialize the queue with people who currently know the secret
+            for (auto& x : st) q.push(x); 
+            
+            // Perform BFS to find additional people who can know the secret
+            while (q.size()) {
+                auto x = q.front(); q.pop(); 
+                for (auto& y : graph[x]) 
+                    if (!can[y]) {
+                        can[y] = true; 
+                        q.push(y); 
+                    }
             }
         }
-        vector<int> ans;
-        for (int i = 0; i < n; ++i) {
-            if (uf.connected(0, i)) ans.push_back(i); // Push all the persons who are connected with person 0 into answer array
-        }
-        return ans;
+        
+        vector<int> ans; 
+
+        // Collect the indices of people who know the secret
+        for (int i = 0; i < n; ++i) 
+            if (can[i]) ans.push_back(i); 
+
+        return ans;  // Return the final list of people who know the secret
     }
 };
