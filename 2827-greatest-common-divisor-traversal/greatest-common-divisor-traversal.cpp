@@ -1,91 +1,79 @@
-class unionFind {
-public:
-    vector<int> id;
-    unionFind(int n) {
-        id.resize(n);
-        for (int i = 0; i < n; i++)
-            id[i] = i;
+const int mex = 1e5 + 5;
+
+int par[mex];
+int siz[mex];
+int A[mex];
+
+void init(int x)
+{
+    for (int i = 0; i <= x; ++i)
+    {
+        par[i] = i;
+        siz[i] = 1;
+        A[i] = 0;
     }
-    void connect(int a, int b) { id[find(b)] = find(a); }
-    int find(int a) { return id[a] == a ? a : (id[a] = find(id[a])); }
-};
 
-class Solution {
-public:
-    bool canTraverseAllPairs(vector<int>& nums) {
-        int n = nums.size();
-        if (n == 1) return true;
-        
-        unordered_set<int> factors;
-        for (int num : nums) {
-            for (int i = 2; i * i <= num; i++) {
-                while (num % i == 0) {
-                    factors.insert(i);
-                    num /= i;
-                }
-            }
-            if (num > 1) factors.insert(num);
-        }
-        
-        unordered_map<int, int> factorMap;
-        int idx = 0;
-        for (int factor : factors) {
-            factorMap[factor] = idx++;
-        }
-        
-        vector<vector<int>> graph(factorMap.size());
-        
-        for (int num : nums) {
-            if(num == 1)
-                return false;
-            unordered_set<int> numFactors;
-            for (int i = 2; i * i <= num; i++) {
-                while (num % i == 0) {
-                    numFactors.insert(i);
-                    num /= i;
-                }
-            }
-            if (num > 1) numFactors.insert(num);
-            
-            for (int factor : numFactors) {
-                int factorIdx = factorMap[factor];
-                for (int otherFactor : numFactors) {
-                    if (factor != otherFactor) {
-                        int otherFactorIdx = factorMap[otherFactor];
-                        graph[factorIdx].push_back(otherFactorIdx);
-                    }
-                }
+    for (int i = 2; i <= x; ++i)
+    {
+        if (A[i] == 0)
+        {
+            A[i] = i;
+            for (int j = 2 * i; j <= x; j += i)
+            {
+                A[j] = i;
             }
         }
-        
-        unionFind uf(graph.size());
-        for (int i = 0; i < graph.size(); i++) {
-            for (int neighbor : graph[i]) {
-                uf.connect(i, neighbor);
-            }
-        }
-        
-        int head = uf.find(0);
-        for (int i = 1; i < graph.size(); i++) {
-            if (head != uf.find(i)) return false;
-        }
-        
-        return true;
     }
+}
+
+int finder(int x)
+{
+    if (x == par[x]) return x;
+    return par[x] = finder(par[x]);
+}
+
+void merge(int a, int b)
+{
+    int x1 = finder(a);
+    int x2 = finder(b);
+    if (x1 != x2)
+    {
+        par[x2] = x1;
+        siz[x1] += siz[x2];
+    }
+}
+
+class Solution
+{
+    public:
+        bool canTraverseAllPairs(vector<int> &v)
+        {
+            int x = 0;
+            if(v.size()==1)
+                return true;
+            for (auto i: v)
+            {
+                if (i == 1) return false;
+                x = max(x, i);
+            }
+            init(x);
+
+            for (auto i: v)
+            {
+                int x = i;
+                while (x > 1)
+                {
+                    int p = A[x];
+                    merge(i, p);
+                    while (x % p == 0 && x > 1)
+                        x /= p;
+                }
+            }
+
+            int f = finder(v[0]);
+            for (auto i: v)
+                if (finder(i) != f)
+                    return false;
+            return true;
+        }
 };
-
-// int n = nums.size();
-// unionFind uf(n);
-
-// for (int i = 0; i < n; i++){
-//     for (int j = i+1; j < n; j++){
-//         if (gcd(nums[i], nums[j]) > 1) {
-//             uf.connect(i, j);
-//         }
-//     }
-// }
-// int head = uf.find(0);
-// for(int i = 1;i<n;i++)
-//     if(head != uf.find(i))
-//         return false;
-// return true;
