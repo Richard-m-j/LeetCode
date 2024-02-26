@@ -12,6 +12,9 @@
 class Solution {
 public:
     bool isSameTree(TreeNode* p, TreeNode* q) {
+        ios::sync_with_stdio(false);
+        cin.tie(0);
+        cout.tie(0);
         stack<TreeNode*> s1,s2;
         if(p==NULL && q == NULL)
             return true;
