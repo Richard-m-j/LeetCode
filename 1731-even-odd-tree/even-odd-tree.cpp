@@ -16,9 +16,8 @@ public:
                 if ((level % 2 == 0 &&
                      (node->val % 2 == 0 || node->val <= prevValue)) ||
                     (level % 2 == 1 &&
-                     (node->val % 2 == 1 || node->val >= prevValue))) {
+                     (node->val % 2 == 1 || node->val >= prevValue)))
                     return false;
-                }
 
                 if (node->left)
                     q.push(node->left);
