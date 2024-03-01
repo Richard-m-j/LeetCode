@@ -7,7 +7,7 @@ class Solution {
 public:
     int minPartitions(string n) {
         char ans=0;
-        for(auto it:n)
+        for(auto& it:n)
         {
             ans=max(ans,it);
         }
