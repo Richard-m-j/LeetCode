@@ -5,7 +5,6 @@ public:
         int ans = n[0] - '0';
         for(int i=1;i<n.length();i++){
             ans += n[i] - n[i-1];
-            cout<<ans<<" ";
         }
         return ans;
     }
