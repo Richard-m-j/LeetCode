@@ -6,11 +6,11 @@ static const auto _ = [](){
 class Solution {
 public:
     int minPartitions(string n) {
-        sort(n.begin(),n.end());
-        int ans = n[0] - '0';
-        for(int i=1;i<n.length();i++){
-            ans += n[i] - n[i-1];
+        char ans=0;
+        for(auto it:n)
+        {
+            ans=max(ans,it);
         }
-        return ans;
+        return ans-'0';
     }
 };
