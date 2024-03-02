@@ -2,21 +2,21 @@ class Solution {
 public:
     vector<int> sortedSquares(vector<int>& nums) {
         int n = nums.size();
-        int l = 0;
-        int r = n - 1;
-        vector<int> squares(n);
+        int left = 0;
+        int right = n - 1;
+        vector<int> sorted(n);
 
         for (int i=n-1; i>=0; i--) {
-            if (abs(nums[l]) >= abs(nums[r])) {
-                squares[i] = nums[l]*nums[l];
-                l++;
+            if (abs(nums[left]) >= abs(nums[right])) {
+                sorted[i] = pow(nums[left], 2);
+                left++;
             }
             else {
-                squares[i] = nums[r]*nums[r];
-                r--;
+                sorted[i] = pow(nums[right], 2);
+                right--;
             }
         }
 
-        return squares;
+        return sorted;
     }
 };
