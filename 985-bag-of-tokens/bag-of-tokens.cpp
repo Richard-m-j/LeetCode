@@ -9,16 +9,13 @@ public:
         while(l<=r){
             if(tokens[l]<=power){
                 //face-up
-                currentScore++;
-                power -= tokens[l];
-                l++;
-                maxScore = max(maxScore,currentScore);
+                power -= tokens[l++];
+                maxScore = max(maxScore,++currentScore);
             }
             else if(currentScore >= 1){
                 //face-down
                 currentScore--;
-                power += tokens[r];
-                r--;
+                power += tokens[r--];
             }
             else
                 break;
