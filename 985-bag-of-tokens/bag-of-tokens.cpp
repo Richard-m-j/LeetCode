@@ -12,6 +12,7 @@ public:
                 currentScore++;
                 power -= tokens[l];
                 l++;
+                maxScore = max(maxScore,currentScore);
             }
             else if(currentScore >= 1){
                 //face-down
@@ -21,7 +22,6 @@ public:
             }
             else
                 break;
-            maxScore = max(maxScore,currentScore);
         }
         return maxScore;
     }
