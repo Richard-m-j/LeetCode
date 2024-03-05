@@ -13,7 +13,6 @@ public:
         }
         if(l==r)
             return 1;
-        cout<<s.substr(l, r - l + 1)<<" ";
-        return (s.substr(l, r - l + 1)).length();
+        return r-l + 1;
     }
 };
