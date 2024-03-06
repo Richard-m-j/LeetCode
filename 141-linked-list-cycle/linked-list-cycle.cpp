@@ -11,9 +11,9 @@ public:
     bool hasCycle(ListNode *head) {
         ListNode *ptr = head;
         while(ptr){
-            if(ptr->val == INT_MIN)
+            if(ptr->val == 100001)
                 return true;
-            ptr->val = INT_MIN;
+            ptr->val = 100001;
             ptr = ptr->next;
         }
         return false;
