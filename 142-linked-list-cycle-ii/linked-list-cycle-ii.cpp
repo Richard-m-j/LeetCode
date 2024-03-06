@@ -8,7 +8,7 @@
  */
 class Solution {
 public:
-    ListNode *detectCycle(ListNode *head) {
+    ListNode* detectCycle(ListNode* head) {
         auto fast = head;
         auto slow = head;
         while (fast && fast->next) {
