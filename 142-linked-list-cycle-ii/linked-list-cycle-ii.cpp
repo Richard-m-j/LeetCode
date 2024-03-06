@@ -9,6 +9,8 @@
 class Solution {
 public:
     ListNode *detectCycle(ListNode *head) {
+        ios::sync_with_stdio(0);
+        cin.tie(0);
         ListNode* fast = head;
         ListNode* slow = head;
         if(fast && fast->next && fast->next->next && fast == fast->next->next)
