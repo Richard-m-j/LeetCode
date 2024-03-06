@@ -9,13 +9,11 @@
 class Solution {
 public:
     ListNode *detectCycle(ListNode *head) {
-        ios::sync_with_stdio(0);
-        cin.tie(0);
-        ListNode* fast = head;
-        ListNode* slow = head;
-        while(fast && fast->next){
-            fast = fast->next->next;
+        auto fast = head;
+        auto slow = head;
+        while (fast && fast->next) {
             slow = slow->next;
+            fast = fast->next->next;
             if (slow == fast) {
                 slow = head;
                 while (slow != fast) {
@@ -25,6 +23,6 @@ public:
                 return slow;
             }
         }
-        return NULL;
+        return nullptr;
     }
 };
