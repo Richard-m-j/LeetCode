@@ -10,7 +10,6 @@ class Solution {
 public:
     bool hasCycle(ListNode *head) {
         ios::sync_with_stdio(0);
-        cin.tie(0);
         ListNode *ptr = head;
         while(ptr){
             if(ptr->val == 100001)
