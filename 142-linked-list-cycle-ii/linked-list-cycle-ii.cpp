@@ -13,8 +13,6 @@ public:
         cin.tie(0);
         ListNode* fast = head;
         ListNode* slow = head;
-        if(fast && fast->next && fast->next->next && fast == fast->next->next)
-            return fast;
         while(fast && fast->next){
             fast = fast->next->next;
             slow = slow->next;
