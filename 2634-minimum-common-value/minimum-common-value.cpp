@@ -3,6 +3,7 @@ public:
     int getCommon(vector<int>& nums1, vector<int>& nums2) {
         ios::sync_with_stdio(0);
         cin.tie(0);
+        cout.tie(0);
         if(nums1[nums1.size() -1] < nums2[0] || nums2[nums2.size() -1] < nums1[0])
             return -1;
         int i=0,j=0;
