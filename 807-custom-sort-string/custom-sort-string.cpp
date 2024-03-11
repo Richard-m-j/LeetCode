@@ -1,17 +1,23 @@
 class Solution {
 public:
     string customSortString(string order, string s) {
-        unordered_map<char,int> mp;
-        for(int i=0;i<order.length();i++)
-            mp[order[i]] = i;
-        int n = s.length();
-        for(int i=0;i<n;i++)
-            for(int j=0;j<n-i-1;j++)
-                if(mp[s[j]] > mp[s[j+1]]){
-                    char temp = s[j];
-                    s[j] = s[j+1];
-                    s[j+1] = temp;
-                }
-        return s;
+        string str;
+        vector<int> mp(26, 0);
+        for (char c: s) {
+            mp[c - 'a']++;
+        }
+        for (char c: order) {
+            while (mp[c - 'a']) {
+                str += c;
+                mp[c - 'a']--;
+            }
+        }
+        for (int i = 0; i < 26; i++) {
+            while (mp[i]) {
+                str += i + 'a';
+                mp[i]--;
+            }
+        }
+        return str;
     }
 };
