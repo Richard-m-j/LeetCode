@@ -14,7 +14,6 @@ class Solution:
         second = dummy.next
     
         while first and second and second.next:
-            print(first.val," ",second.next.val," ")
             first.next = second.next
             second.next = second.next.next
             first.next.next = second
