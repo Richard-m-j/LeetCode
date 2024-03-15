@@ -11,5 +11,5 @@ class Solution:
         
         for i in range(len(nums)):
             nums[i] = prefix[i] * suffix[i]
-            
+
         return nums
