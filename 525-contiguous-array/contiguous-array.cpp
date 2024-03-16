@@ -1,6 +1,8 @@
 class Solution {
 public:
     int findMaxLength(vector<int>& nums) {
+        ios::sync_with_stdio(0);
+        cin.tie(0);
         int n = nums.size();
         if (n == 0) return 0;
 
@@ -18,7 +20,6 @@ public:
                 mp[sum] = i;
             }
         }
-
         return maxLength;
     }
 };
