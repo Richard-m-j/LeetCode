@@ -9,7 +9,6 @@ public:
             s += '/';
             int count = 1;
             string ans = "";
-            cout<<s<<" ";
             for (int j = 0; j < s.length() - 1; j++) {
                 if (s[j] == s[j + 1])
                     count++;
