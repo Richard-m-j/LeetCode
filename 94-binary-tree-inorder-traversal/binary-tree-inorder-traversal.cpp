@@ -13,30 +13,12 @@
 class Solution {
 public:
     vector<int> inorderTraversal(TreeNode* root) {
-        stack<TreeNode*> s;
-        vector<int> res;
-        if (!root)
+        if(!root)
             return {};
-        s.push(root);
-        while (!s.empty()) {
-            TreeNode* ptr = s.top();
-            s.pop();
-            cout<<ptr->val<<" ";
-            if (!ptr->left && !ptr->right){
-                res.push_back(ptr->val);
-                continue;
-            }
-            if (ptr->right) {
-                s.push(ptr->right);
-                ptr->right = NULL;
-            }
-            TreeNode* left = ptr->left;
-            ptr->left = NULL;
-            s.push(ptr);
-            if (left) {
-                s.push(left);
-            }
-        }
-        return res;
+        vector<int> inorder = inorderTraversal(root->left);
+        inorder.push_back(root->val);
+        vector<int> right = inorderTraversal(root->right);
+        inorder.insert(inorder.end(),right.begin(),right.end());
+        return inorder;
     }
 };
