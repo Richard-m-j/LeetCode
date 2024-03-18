@@ -10,12 +10,8 @@ public:
                 count++;
                 end = points[i][1];
             }
-            else if(points[i][1]>end){
-                ;
-            }
-            else{
+            else if(points[i][1]<=end)
                 end = points[i][1];
-            }
         }
         return count;
     }
