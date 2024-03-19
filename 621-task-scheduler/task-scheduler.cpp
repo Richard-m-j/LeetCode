@@ -1,6 +1,9 @@
 class Solution {
 public:
     int leastInterval(vector<char>& tasks, int n) {
+        ios::sync_with_stdio(false);
+        cin.tie(0);
+        cout.tie(0);
         priority_queue<pair<int,char>> q;
         unordered_map<char, int> mp;
         for (char& task : tasks)
