@@ -27,7 +27,6 @@ public:
                 res += delta <= n ? n + 1 : delta;
             else
                 res += delta;
-            cout<<res<<" ";
             q = q1;
         }
         return res;
