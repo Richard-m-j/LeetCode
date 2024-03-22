@@ -20,8 +20,10 @@ public:
             head = head -> next;
         }
 
-        string rev = s;
-        reverse(rev.begin(), rev.end());
+        string rev;
+        for(int i = s.length() - 1; i > -1; i--) 
+            rev += s[i];
+        
         return rev == s;
     }
 };
