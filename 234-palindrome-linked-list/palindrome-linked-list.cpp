@@ -8,8 +8,6 @@
  *     ListNode(int x, ListNode *next) : val(x), next(next) {}
  * };
  */
-
-
 class Solution {
 public:
     bool isPalindrome(ListNode* head) {
@@ -20,10 +18,8 @@ public:
             head = head -> next;
         }
 
-        string rev;
-        for(int i = s.length() - 1; i > -1; i--) 
-            rev += s[i];
-        
+        string rev = s;
+        reverse(rev.begin(), rev.end());
         return rev == s;
     }
 };
