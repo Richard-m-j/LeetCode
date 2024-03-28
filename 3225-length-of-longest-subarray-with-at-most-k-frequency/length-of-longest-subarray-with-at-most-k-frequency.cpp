@@ -1,6 +1,8 @@
 class Solution {
 public:
     int maxSubarrayLength(vector<int>& nums, int k) {
+        ios::sync_with_stdio(0);
+        cin.tie(0);
         unordered_map<int, int> freq;
         unordered_map<int, vector<int>> graph;
         int ans = 0;
