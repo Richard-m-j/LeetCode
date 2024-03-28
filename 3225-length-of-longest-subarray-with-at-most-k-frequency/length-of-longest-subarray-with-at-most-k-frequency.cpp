@@ -4,20 +4,19 @@ public:
         ios::sync_with_stdio(0);
         cin.tie(0);
         unordered_map<int, int> freq;
-        unordered_map<int, vector<int>> graph;
         int ans = 0;
+        bool flag = false;
         int l = 0, r = 0, n = nums.size();
         for (; r < n; r++) {
             if (++freq[nums[r]] > k) {
-                ans = max(ans, r - l);
-                int nextL = graph[nums[r]][0];
-                while (l <= nextL) {
-                    freq[nums[l]]--;
-                    graph[nums[l]].erase(graph[nums[l]].begin());
-                    l++;
-                }
+                flag = true;
             }
-            graph[nums[r]].push_back(r);
+            while (flag && l <= r) {
+                freq[nums[l]]--;
+                ans = max(ans, r - l);
+                l++;
+                if(freq[nums[r]] == k) flag = false;
+            }
         }
         ans = max(ans, r - l);
         
