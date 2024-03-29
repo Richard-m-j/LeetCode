@@ -16,7 +16,7 @@ public:
         bool flag = false;
         for (int r = 0; r < nums.size(); r++) {
             count += nums[r] == big;
-            while (count >= k)
+            while (count == k)
                 count -= nums[l++] == big;
             ans += l;
         }
