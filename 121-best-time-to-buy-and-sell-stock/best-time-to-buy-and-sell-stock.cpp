@@ -1,6 +1,9 @@
 class Solution {
 public:
     int maxProfit(vector<int>& prices) {
+        ios_base::sync_with_stdio(0);
+        cin.tie(0);
+        cout.tie(0);
         int buy = 0;
         int sell = 0;
         int profit = 0;
