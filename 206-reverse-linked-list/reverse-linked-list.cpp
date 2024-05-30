@@ -11,6 +11,9 @@
 class Solution {
 public:
     ListNode* reverseList(ListNode* head) {
+        ios::sync_with_stdio(0);
+        cin.tie(0);
+        cout.tie(0);
         ListNode* ptr = head,*ptr1 = NULL;
         while(ptr){
             ListNode *newNode = new ListNode(ptr->val,ptr1);
