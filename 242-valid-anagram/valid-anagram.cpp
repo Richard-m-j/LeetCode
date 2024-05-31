@@ -6,13 +6,13 @@ public:
         cout.tie(0);
         if(s.length() != t.length())
             return false;
-        unordered_map<char,int> m1,m2;
-        for(auto &c: s)
-            m1[c]++;
-        for(auto &c: t)
-            m2[c]++;
-        for(auto &it: m1)
-            if(it.second != m2[it.first])
+        vector<int> count(26,0);
+        for(auto&c: s)
+            count[c-'a']++;
+        for(auto&c:t)
+            count[c-'a']--;
+        for(int i=0;i<26;i++)
+            if(count[i] != 0)
                 return false;
         return true;
     }
