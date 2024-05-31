@@ -1,6 +1,9 @@
 class Solution {
 public:
     bool isAnagram(string s, string t) {
+        ios::sync_with_stdio(0);
+        cin.tie(0);
+        cout.tie(0);
         if(s.length() != t.length())
             return false;
         unordered_map<char,int> m1,m2;
