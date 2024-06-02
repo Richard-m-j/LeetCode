@@ -1,6 +1,9 @@
 class Solution {
 public:
     bool isPalindrome(string s) {
+        ios::sync_with_stdio(0);
+        cin.tie(0);
+        cout.tie(0);
         int l=0,r=s.length()-1;
         while(l<=r){
             cout<<s[l]<<" "<<s[r]<<endl;
