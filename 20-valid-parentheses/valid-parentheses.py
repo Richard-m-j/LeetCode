@@ -4,11 +4,8 @@ class Solution:
         compliment = {')':'(', '}':'{',']':'[' }
         for c in s:
             if c in compliment:
-                if len(stack):
-                    if compliment[c] == stack[-1]:
-                        stack.pop()
-                    else:
-                        return False
+                if len(stack)  and compliment[c] == stack[-1]:
+                    stack.pop()
                 else:
                     return False
             else:
