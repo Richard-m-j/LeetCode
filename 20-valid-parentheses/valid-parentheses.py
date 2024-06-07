@@ -5,14 +5,14 @@ class Solution:
         right = [')','}',']']
         compliment = {')':'(', '}':'{',']':'[' }
         for c in s:
-            if c in left:
-                stack += [c]
-            elif c in right:
+            if c in compliment:
                 if len(stack):
                     if compliment[c] == stack[-1]:
-                        stack = stack[:-1]
+                        stack.pop()
                     else:
                         return False
                 else:
                     return False
+            else:
+                stack.append(c)
         return len(stack) == 0
