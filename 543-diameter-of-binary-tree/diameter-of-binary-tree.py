@@ -14,11 +14,9 @@ class Solution:
             right = getDepth(root.right)
         
             self.maxDia = max(left + right, self.maxDia)
-            if left and right:
-                return max(left,right)+1
-            if left:
-                return left + 1
-            return right + 1
+
+            return max(left,right)+1
+
         getDepth(root)
         return self.maxDia
         
