@@ -1,6 +1,9 @@
 class Solution {
 public:
     int lengthOfLongestSubstring(string s) {
+        ios::sync_with_stdio(0);
+        cin.tie(0);
+        cout.tie(0);
         vector<int> lastIndex(128,-1);
         int res = 0;
 
