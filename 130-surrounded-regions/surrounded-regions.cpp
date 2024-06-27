@@ -1,13 +1,11 @@
 class Solution {
-private:
-    int m, n;
-
 public:
     void solve(vector<vector<char>>& board) {
-        if (board.empty() || board[0].empty())
-            return;
-        m = board.size();
-        n = board[0].size();
+        ios_base::sync_with_stdio(0);
+        cin.tie(0);
+        cout.tie(0);
+        int m = board.size();
+        int n = board[0].size();
 
         for (int i = 0; i < m; i++) {
             dfs(board, i, 0);
