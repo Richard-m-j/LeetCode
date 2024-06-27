@@ -25,8 +25,6 @@ private:
 
 public:
     int goodNodes(TreeNode* root) {
-        if (!root)
-            return 0;
         return traversal(root, root->val);
     }
 };
