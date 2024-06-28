@@ -12,6 +12,3 @@ class Solution:
                 res[i] = stack[-1] - i
             stack.append(i)
         return res
-
-# [73,74,75,71,69,72,76,73]
-# [01,01,04,02,01,01,00,00]
