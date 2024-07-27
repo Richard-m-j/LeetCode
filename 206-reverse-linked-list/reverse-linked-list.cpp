@@ -14,12 +14,17 @@ public:
         ios::sync_with_stdio(0);
         cin.tie(0);
         cout.tie(0);
-        ListNode* ptr = head,*ptr1 = NULL;
-        while(ptr){
-            ListNode *newNode = new ListNode(ptr->val,ptr1);
-            ptr1 = newNode;
-            ptr = ptr->next;
+
+        ListNode * prev = NULL;
+        ListNode * node = head;
+
+        while(node){
+            cout<<node->val<<" ";
+            ListNode *temp = node->next;
+            node->next = prev;
+            prev = node;
+            node = temp;
         }
-        return ptr1;
+        return prev;
     }
 };
