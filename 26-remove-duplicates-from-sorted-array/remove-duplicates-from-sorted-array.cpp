@@ -1,18 +1,16 @@
 class Solution {
 public:
     int removeDuplicates(vector<int>& nums) {
-        int count = 1,n=nums.size();
-
-        for(int i=0;i<n-1;i++){
-            if(nums[i]!=nums[i+1]){
-                count++;
+        int k=-1;
+        unordered_map<int,int> mp;
+        for(int i=0;i<nums.size();i++){
+            if(mp.find(nums[i]) == mp.end()){
+                
+                k++;
             }
-            nums[count-1] = nums[i+1];
+            nums[k] = nums[i];
+            mp[nums[i]] = i;    
         }
-        // if(n>=2 && nums[n-1] != nums[n-2]){
-        //     count++;
-        //     nums[count-1] = nums[n-1];
-        // }
-        return count;
+        return k+1;
     }
 };
