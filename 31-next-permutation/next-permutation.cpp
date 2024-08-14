@@ -15,7 +15,6 @@ public:
                 break;
             }
         }
-        cout<<l<<" "<<r<<endl;
         while(l<r){
             swap(nums[l],nums[r]);
             l++;
