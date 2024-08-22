@@ -17,9 +17,6 @@ public:
             return;
         }
         string sequence = keyboard[digits[s.size()] - '0'];
-        // string sequence = "abc";
-        // int digit = digits[s.size()];
-        // cout<<digit<<keyboard[3]<<" ";
         for(int i=0;i<sequence.size();i++){
             helper(s+sequence[i]);
         }
