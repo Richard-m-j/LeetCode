@@ -11,6 +11,9 @@
 class Solution {
 public:
     ListNode* mergeKLists(vector<ListNode*>& lists) {
+        ios::sync_with_stdio(0);
+        cin.tie(0);
+        cout.tie(0);
         vector<int> temp;
         for(auto& list: lists){
             ListNode* ptr = list;
