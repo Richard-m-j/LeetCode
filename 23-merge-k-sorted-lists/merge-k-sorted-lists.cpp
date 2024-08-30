@@ -14,7 +14,6 @@ public:
         ios::sync_with_stdio(0);
         cin.tie(0);
         cout.tie(0);
-        vector<int> temp;
         ListNode *head = NULL;
 
         auto merge2 = [](ListNode *list1, ListNode *list2){
