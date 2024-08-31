@@ -11,7 +11,6 @@ public:
                      return a[0] < b[0];
                  return a[1] < b[1];
              });
-        vector<int> dp(intervals.size(), 0);
         int res = 0;
         int l = intervals[0][0];
         int r = intervals[0][1];
