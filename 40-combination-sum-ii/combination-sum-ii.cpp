@@ -1,3 +1,8 @@
+static const auto speedUp = [](){
+    ios::sync_with_stdio(0);
+    cin.tie(0);
+    return 0;
+}();
 class Solution {
 private:
     void helper(vector<int>& candidates, int target,vector<vector<int>>& combinations,vector<int>& current, int n){
