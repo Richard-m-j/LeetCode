@@ -1,6 +1,9 @@
 class Solution {
 public:
     int eraseOverlapIntervals(vector<vector<int>>& intervals) {
+        ios::sync_with_stdio(0);
+        cin.tie(0);
+        cout.tie(0);
         // sort the intervals
         sort(intervals.begin(), intervals.end(),
              [](const auto& a, const auto& b) {
