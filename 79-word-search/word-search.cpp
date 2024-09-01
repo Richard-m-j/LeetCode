@@ -1,44 +1,43 @@
 class Solution {
 private:
     vector<vector<char>> board;
-    string word;
-    int m, n;
-    vector<vector<int>> dir = {{-1, 0}, {1, 0}, {0, -1}, {0, 1}};
+    vector<vector<bool>> visited;
 
-public:
-    bool exist(vector<vector<char>>& board, string word) {
-        Solution::board = board;
-        Solution::word = word;
-        n = board.size();
-        m = board[0].size();
-        vector<vector<bool>> visited(n, vector<bool>(m, false));
-        bool val = false;
-        for (int i = 0; i < n; i++) {
-            for (int j = 0; j < m; j++) {
-                if (word[0] == board[i][j]) {
-                    val = val || checkNear(visited, i, j, 0);
-                    if (val) return true; // Return immediately if solution found
+    string word;
+    int n, m;
+    vector<pair<int, int>> dirs = {{0, 1}, {1, 0}, {0, -1}, {-1, 0}};
+    bool helper(int x, int y, int k) {
+        visited[x][y] = true;
+        if(k+1 < word.size()){
+            for (auto& dir : dirs) {
+                int xi = x + dir.first;
+                int yi = y + dir.second;
+                if (xi >= 0 && xi < n && yi >= 0 && yi < m) {
+                    if (!visited[xi][yi] && k<word.size() - 1 && word[k+1] == board[xi][yi])
+                        if(helper(xi, yi, k + 1))
+                            return true;
                 }
             }
         }
+        else
+            return true;
+            
+        visited[x][y] = false;
+
         return false;
     }
 
-    bool checkNear(vector<vector<bool>>& visited, int row, int col, int k) {
-        if (k == word.length())
-            return true;
-        if (row < 0 || row == n || col < 0 || col == m)
-            return false;
-        if (visited[row][col] || board[row][col] != word[k])
-            return false;
-
-        visited[row][col] = true;
-        bool ans = false;
-        for (auto& it : dir) {
-            ans = ans || checkNear(visited, row + it[0], col + it[1], k + 1);
-            if (ans) break; // Break early if solution found
-        }
-        visited[row][col] = false; // Reset the visited state after recursive calls
-        return ans;
+public:
+    bool exist(vector<vector<char>>& b, string w) {
+        board = b;
+        word = w;
+        n = board.size();
+        m = board[0].size();
+        visited.resize(n, vector<bool>(m, false));
+        for(int i=0;i<n;i++)
+            for(int j=0;j<m;j++)
+                if(word[0] == board[i][j] && helper(i,j,0))
+                    return true;
+        return false;
     }
 };
