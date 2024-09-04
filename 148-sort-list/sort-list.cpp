@@ -36,6 +36,7 @@ public:
     ListNode* sortList(ListNode* head) {
         if(!head || !head->next)
             return head;
+
         ListNode* mid = middle(head);
         ListNode* left = sortList(head);
         ListNode* right = sortList(mid);
