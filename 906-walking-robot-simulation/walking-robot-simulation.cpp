@@ -8,7 +8,7 @@ private:
     vector<pair<int, int>> dirs = {{0, 1},{1,0},{0,-1},{-1,0}};
     struct pairHash {
         size_t operator()(const pair<int, int>& p) const {
-            return p.first | p.second;
+            return p.first ^ p.second;
         }
     };
 
@@ -30,8 +30,7 @@ public:
             else{
                 int x = command * dirs[dirIndex].first;
                 int y = command * dirs[dirIndex].second;
-                // pos = {pos.first + x, pos.second + y};
-                // cout<<x<<","<<y<<" ";
+
                 for(int i=0;i<abs(x);i++){
                     pos.first += x>0?1:-1;
                     if(obstacleSet.find(pos) != obstacleSet.end()){
@@ -47,7 +46,6 @@ public:
                     }
                 }
             }
-            // cout<<pos.first<<","<<pos.second<<endl;
             res = max(res, pos.first*pos.first + pos.second*pos.second);
         }
         return res;
