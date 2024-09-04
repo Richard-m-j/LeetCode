@@ -1,3 +1,8 @@
+int speedUp = []{
+    ios::sync_with_stdio(0);
+    cin.tie(0);
+    return 0;
+}();
 class Solution {
 public:
     int maxProfit(vector<int>& prices) {
@@ -7,5 +12,6 @@ public:
                 res += prices[i]-prices[i-1];
         }
         return res;
+
     }
 };
