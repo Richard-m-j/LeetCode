@@ -9,21 +9,37 @@
  * };
  */
 class Solution {
+private:
+    ListNode* merge(ListNode* head1, ListNode* head2){
+        if(!head1) return head2;
+        if(!head2) return head1;
+
+        if(head1->val < head2->val){
+            head1->next = merge(head1->next,head2);
+            return head1;
+        }
+        head2->next = merge(head1,head2->next);
+        return head2;
+    }
+    ListNode* middle(ListNode*head){
+        ListNode*fast=head,*slow=head,*prev=nullptr;
+        while(fast && fast->next){
+            prev = slow;
+            fast = fast->next->next;
+            slow = slow->next;
+        }
+        if(prev)
+            prev->next = nullptr;
+        return slow;
+    }
 public:
     ListNode* sortList(ListNode* head) {
-        vector<int> nums;
-        ListNode* ptr = head;
-        while(ptr){
-            nums.push_back(ptr->val);
-            ptr = ptr->next;
-        }
-        sort(nums.begin(),nums.end());
-        ptr = head;
-        int i=0;
-        while(ptr){
-            ptr->val = nums[i++];
-            ptr = ptr->next;
-        }
-        return head;
+        if(!head || !head->next)
+            return head;
+        ListNode* mid = middle(head);
+        ListNode* left = sortList(head);
+        ListNode* right = sortList(mid);
+
+        return merge(left,right);
     }
 };
