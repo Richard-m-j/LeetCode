@@ -8,9 +8,7 @@ private:
     vector<pair<int, int>> dirs = {{0, 1},{1,0},{0,-1},{-1,0}};
     struct pairHash {
         size_t operator()(const pair<int, int>& p) const {
-            auto hash1 = hash<int>{}(p.first);
-            auto hash2 = hash<int>{}(p.second);
-            return hash1 ^ (hash2 << 1);
+            return p.first ^ p.second;
         }
     };
 
