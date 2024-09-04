@@ -6,6 +6,11 @@
  *     ListNode(int x) : val(x), next(NULL) {}
  * };
  */
+int speedUp = []{
+    ios::sync_with_stdio(0);
+    cin.tie(0);
+    return 0;
+}();
 class Solution {
 public:
     void deleteNode(ListNode* node) {
