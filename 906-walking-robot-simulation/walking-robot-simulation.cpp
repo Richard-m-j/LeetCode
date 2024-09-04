@@ -6,11 +6,18 @@ int speedUp = []{
 class Solution {
 private:
     vector<pair<int, int>> dirs = {{0, 1},{1,0},{0,-1},{-1,0}};
+    struct pairHash {
+        size_t operator()(const pair<int, int>& p) const {
+            auto hash1 = hash<int>{}(p.first);
+            auto hash2 = hash<int>{}(p.second);
+            return hash1 ^ (hash2 << 1);
+        }
+    };
 
 public:
     int robotSim(vector<int>& commands, vector<vector<int>>& obstacles) {
         pair<int, int> pos = {0, 0};
-        set<pair<int,int>> obstacleSet;
+        unordered_set<pair<int,int>,pairHash> obstacleSet;
 
         for(auto& obstacle:obstacles)
             obstacleSet.insert({obstacle[0],obstacle[1]});
