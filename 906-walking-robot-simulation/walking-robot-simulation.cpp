@@ -8,7 +8,7 @@ private:
     vector<pair<int, int>> dirs = {{0, 1},{1,0},{0,-1},{-1,0}};
     struct pairHash {
         size_t operator()(const pair<int, int>& p) const {
-            return p.first ^ p.second;
+            return p.first | p.second;
         }
     };
 
