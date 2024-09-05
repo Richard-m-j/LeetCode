@@ -1,6 +1,8 @@
 class Solution {
 public:
     vector<int> rowAndMaximumOnes(vector<vector<int>>& mat) {
+        ios::sync_with_stdio(0);
+        cin.tie(0);
         int n = mat.size();
         vector<int> rowSum(n,0);
         int res = 0;
