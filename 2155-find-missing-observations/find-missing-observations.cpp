@@ -1,13 +1,14 @@
 class Solution {
 public:
     vector<int> missingRolls(vector<int>& rolls, int mean, int n) {
+        ios::sync_with_stdio(0);
+        cin.tie(0);
         int m = rolls.size();
         long totSum = mean*(m+n);
         long mSum = accumulate(rolls.begin(),rolls.end(),0);
         long nSum = totSum - mSum;
 
         int f = (int)(nSum/n);
-        cout<<f;
         if(f > 6 || f<1)
             return {};
         long rem = nSum - f*n;
