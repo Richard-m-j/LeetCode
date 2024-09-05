@@ -3,6 +3,7 @@ public:
     vector<int> missingRolls(vector<int>& rolls, int mean, int n) {
         ios::sync_with_stdio(0);
         cin.tie(0);
+        cout.tie(0);
         int m = rolls.size();
         long totSum = mean*(m+n);
         long mSum = accumulate(rolls.begin(),rolls.end(),0);
