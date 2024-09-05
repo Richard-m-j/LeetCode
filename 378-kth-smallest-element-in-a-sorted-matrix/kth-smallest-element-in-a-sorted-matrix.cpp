@@ -1,6 +1,9 @@
 class Solution {
 public:
     int kthSmallest(vector<vector<int>>& matrix, int k) {
+        ios::sync_with_stdio(0);
+        cin.tie(0);
+        
         int n =matrix.size();
         int l=matrix[0][0];
         int h=matrix[n-1][n-1];
