@@ -15,7 +15,11 @@ public:
         : val(_val), left(_left), right(_right), next(_next) {}
 };
 */
-
+int speedUp = []{
+    ios::sync_with_stdio(0);
+    cin.tie(0);
+    return 0;
+}();
 class Solution {
 public:
     Node* connect(Node* root) {
