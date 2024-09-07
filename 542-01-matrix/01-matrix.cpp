@@ -22,7 +22,6 @@ public:
                 }
             }
         while (!q.empty()) {
-        
             auto curr = q.front();
             q.pop();
             for (auto& dir : dirs) {
