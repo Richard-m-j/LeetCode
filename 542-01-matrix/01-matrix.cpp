@@ -17,22 +17,19 @@ public:
                 }
             }
         while (!q.empty()) {
-            queue<pair<int, int>> q1;
-            while (!q.empty()) {
-                auto curr = q.front();
-                q.pop();
-                for (auto& dir : dirs) {
-                    int x = curr.first + dir.first;
-                    int y = curr.second + dir.second;
-                    if (x >= 0 && y >= 0 && x < n && y < m) {
-                        if (dp[x][y] > dp[curr.first][curr.second] + 1) {
-                            dp[x][y]=dp[curr.first][curr.second] + 1;
-                            q1.push({x,y});
-                        }
+        
+            auto curr = q.front();
+            q.pop();
+            for (auto& dir : dirs) {
+                int x = curr.first + dir.first;
+                int y = curr.second + dir.second;
+                if (x >= 0 && y >= 0 && x < n && y < m) {
+                    if (dp[x][y] > dp[curr.first][curr.second] + 1) {
+                        dp[x][y]=dp[curr.first][curr.second] + 1;
+                        q.push({x,y});
                     }
                 }
             }
-            q=q1;
         }
         return dp;
     }
