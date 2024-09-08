@@ -27,7 +27,7 @@ public:
             // cout<<ptr->val;
             int val = numNodes + (i<n%k);
 
-            for (int j = 1; j<val && ptr; j++) {
+            for (int j = 1; j<(numNodes + (i<n%k)) && ptr; j++) {
                 cout<<val<<" ";
                 ptr = ptr->next;
             }
