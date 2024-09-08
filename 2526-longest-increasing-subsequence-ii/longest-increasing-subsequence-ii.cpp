@@ -7,19 +7,19 @@ public:
             return;
         }
         int mid = (st + end) / 2;
-        if (i <= mid) {
+        if (i <= mid)
             update(node * 2, st, mid, i, val);
-        } else {
+        else
             update(node * 2 + 1, mid + 1, end, i, val);
-        }
+
         tree[node] = max(tree[node * 2], tree[node * 2 + 1]);
     }
     int query(int node, int st, int end, int x, int y) {
         if (x > end || y < st)
             return -1e9;
-        if (st >= x && end <= y) {
+        if (st >= x && end <= y)
             return tree[node];
-        }
+
         int mid = (st + end) / 2;
         int left = query(2 * node, st, mid, x, y);
         int right = query(2 * node + 1, mid + 1, end, x, y);
