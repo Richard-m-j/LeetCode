@@ -27,7 +27,7 @@ public:
             res.push_back(ptr);
             // cout<<ptr->val;
             int val;
-            if(i<rem)
+            if(i<n%k)
                 val = numNodes + 1;
             else
                 val = numNodes;
