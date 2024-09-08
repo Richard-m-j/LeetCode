@@ -21,17 +21,12 @@ public:
         }
         vector<ListNode*> res;
         int numNodes = n / k;
-        int rem = n%k;
         ptr = head;
         for (int i = 0; i < k; i++) {
             res.push_back(ptr);
             // cout<<ptr->val;
-            int val;
-            if(i<n%k)
-                val = numNodes + 1;
-            else
-                val = numNodes;
-            // cout<<numNodes<<" ";
+            int val = numNodes + (i<n%k);
+
             for (int j = 1; j<val && ptr; j++) {
                 cout<<val<<" ";
                 ptr = ptr->next;
