@@ -15,7 +15,7 @@ public:
             queue<string> q1;
             while(!q.empty()){
                 string curr = q.front();
-                cout<<curr<<" ";
+                // cout<<curr<<" ";
                 q.pop();
                 for(int i=0;i<n;i++){
                     string next = curr;
