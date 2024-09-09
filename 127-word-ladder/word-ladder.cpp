@@ -19,8 +19,8 @@ public:
                 q.pop();
                 for(int i=0;i<n;i++){
                     char originalChar = curr[i];
-                    for(int j=0;j<26;j++){
-                        curr[i] = j+'a';
+                    for(char j='a';j<='z';j++){
+                        curr[i] = j;
                         if(curr[i] == originalChar)
                             continue;
                         if(words.find(curr)!=words.end() && visited.find(curr)==visited.end())
