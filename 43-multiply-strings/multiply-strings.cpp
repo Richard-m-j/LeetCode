@@ -1,7 +1,3 @@
-#include <string>
-#include <vector>
-#include <algorithm>
-
 class Solution {
 public:
     string multiply(string num1, string num2) {
@@ -12,8 +8,8 @@ public:
         vector<int> resVec(n + m, 0);
 
         // Reverse the numbers
-        std::reverse(num1.begin(), num1.end());
-        std::reverse(num2.begin(), num2.end());
+        reverse(num1.begin(), num1.end());
+        reverse(num2.begin(), num2.end());
 
         for (int i = 0; i < n; ++i) {
             for (int j = 0; j < m; ++j) {
@@ -29,7 +25,7 @@ public:
             resVec.pop_back();
         }
         
-        std::string result;
+        string result;
         for (auto it = resVec.rbegin(); it != resVec.rend(); ++it) {
             result.push_back('0' + *it);
         }
