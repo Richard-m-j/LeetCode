@@ -4,10 +4,10 @@ public:
         ios::sync_with_stdio(0);
         cin.tie(0);
         unordered_set<string> visited;
-        unordered_set<string> words;
+        unordered_set<string> words(wordList.begin(),wordList.end());
         queue<string> q;
-        for(string& s: wordList)
-            words.insert(s);
+        // for(string& s: wordList)
+        //     words.insert(s);
         int n = beginWord.length();
         q.push(beginWord);
         int level=1;
