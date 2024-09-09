@@ -21,12 +21,12 @@ public:
                         continue;
                     if(wordSet.find(nextWord)!=wordSet.end()){
                         branches.push_back(nextWord);
-                        cout<<s<<"-"<<nextWord<<" ";
+                        // cout<<s<<"-"<<nextWord<<" ";
                     }
                 }
             }
             wordMap[s] = branches;
-            cout<<s<<endl;
+            // cout<<s<<endl;
         }
         q.push(beginWord);
         int level=1;
@@ -34,12 +34,12 @@ public:
             queue<string> q1;
             while(!q.empty()){
                 string curr = q.front();
-                cout<<curr<<" ";
+                // cout<<curr<<" ";
                 q.pop();
                 vector<string> branches = wordMap[curr];
-                cout<<branches.size()<<endl;
+                // cout<<branches.size()<<endl;
                 for(auto& next: branches){
-                    cout<<next<<" ";
+                    // cout<<next<<" ";
                     if(visited.find(next) != visited.end())
                         continue;
                     if(next == endWord)
