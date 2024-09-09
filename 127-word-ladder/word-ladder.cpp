@@ -23,12 +23,12 @@ public:
                         curr[i] = j;
                         if(curr[i] == originalChar)
                             continue;
-                        if(words.find(curr)!=words.end() && visited.find(curr)==visited.end())
+                        if(words.find(curr)!=words.end())
                             if(curr == endWord)
                                 return level+1;
                             else{
                                 q1.push(curr);
-                                visited.insert(curr);
+                                words.erase(curr);
                             }
                     }
                     curr[i] = originalChar;
