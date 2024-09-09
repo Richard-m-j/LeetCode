@@ -1,6 +1,8 @@
 class Solution {
 public:
     string multiply(string num1, string num2) {
+        ios::sync_with_stdio(0);
+        cin.tie(0);
         if (num1 == "0" || num2 == "0") return "0";
         
         int n = num1.size();
