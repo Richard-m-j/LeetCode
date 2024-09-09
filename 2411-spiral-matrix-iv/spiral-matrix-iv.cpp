@@ -24,7 +24,7 @@ public:
             int nextX = x + dirs[dir].first;
             int nextY = y + dirs[dir].second;
             if(nextX>=0 && nextY>=0 && nextX<m && nextY<n && mat[nextX][nextY] == -1){
-                cout<<endl;
+                // cout<<endl;
                 x = nextX;
                 y = nextY;
             }
