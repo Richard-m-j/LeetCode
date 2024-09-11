@@ -8,6 +8,11 @@
  *     ListNode(int x, ListNode *next) : val(x), next(next) {}
  * };
  */
+int speedUp = []{
+    ios::sync_with_stdio(0);
+    cin.tie(0);
+    return 0;
+}();
 class Solution {
 public:
     ListNode* reverseKGroup(ListNode* head, int k) {
