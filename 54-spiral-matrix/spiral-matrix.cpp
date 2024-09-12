@@ -3,6 +3,8 @@ private:
     vector<pair<int,int>> dirs = {{0,1},{1,0},{0,-1},{-1,0}};
 public:
     vector<int> spiralOrder(vector<vector<int>>& matrix) {
+        ios::sync_with_stdio(0);
+        cin.tie(0);
         int dir =0;
         int m=matrix.size();
         int n=matrix[0].size();
