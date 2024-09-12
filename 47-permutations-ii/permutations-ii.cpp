@@ -12,7 +12,7 @@ private:
         for(auto& it:mp){
             if(it.second){
                 current.push_back(it.first);
-                cout<<it.first<<" ";
+                // cout<<it.first<<" ";
                 mp[it.first]--;
                 helper(mp,res,current);
                 mp[it.first]++;
