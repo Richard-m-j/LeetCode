@@ -1,6 +1,8 @@
 class Solution {
 public:
     long long totalCost(vector<int>& costs, int k, int candidates) {
+        ios::sync_with_stdio(0);
+        cin.tie(0);
         long long res=0;
         int n = costs.size();
         vector<int> hired(n,0);
