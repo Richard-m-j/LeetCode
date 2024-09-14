@@ -27,7 +27,7 @@ public:
         for(int i=0;i<k;i++){
             if(left.size() && (!right.size() || left.top()<=right.top())){
                 res+=left.top();
-                cout<<left.top()<<"l ";
+                // cout<<left.top()<<"l ";
                 left.pop();
                 ++l;
                 if(l<n && !hired[l]){   
@@ -37,13 +37,13 @@ public:
             }
             else{
                 res+=right.top();
-                cout<<right.top()<<"r "<<right.size()<<" ";
+                // cout<<right.top()<<"r "<<right.size()<<" ";
                 right.pop();
                 r--;
                 if(r>=0 && !hired[r]){
                     right.push(costs[r]);
                     hired[r]=1;
-                    cout<<"**";
+                    // cout<<"**";
                 }
             }
         }
