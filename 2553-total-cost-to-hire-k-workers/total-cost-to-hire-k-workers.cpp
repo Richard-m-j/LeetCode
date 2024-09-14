@@ -25,7 +25,7 @@ public:
         }
         r++;
 
-        cout<<endl<<left.size()<<" "<<right.size()<<" "<<endl;
+        // cout<<endl<<left.size()<<" "<<right.size()<<" "<<endl;
         for(int i=0;i<k;i++){
             if(left.size() && (!right.size() || left.top()<=right.top())){
                 res+=left.top();
