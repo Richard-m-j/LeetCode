@@ -1,15 +1,4 @@
 class Solution {
-private:
-    bool isPeak(vector<int>& nums,int m){
-        // cout<<m<<" ";
-        if(m==0 && nums[m]>nums[m+1])
-            return true;
-        if(m==nums.size()-1 && nums[m]>nums[m-1])
-            return true;
-        if(m>0 && m<nums.size()-1 && nums[m]>nums[m+1] && nums[m]>nums[m-1])
-            return true;
-        return false;
-    }
 public:
     int findPeakElement(vector<int>& nums) {
         int n =nums.size();
