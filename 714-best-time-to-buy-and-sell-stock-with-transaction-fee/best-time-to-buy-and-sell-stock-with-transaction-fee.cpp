@@ -3,11 +3,12 @@ public:
     int maxProfit(vector<int>& prices, int fee) {
         ios::sync_with_stdio(0);
         cin.tie(0);
-        int buy = INT_MIN;
+        int buy = prices[0];
         int sell = 0;
-        for(int& price: prices){
-            buy = max(buy,sell-price);
-            sell = max(sell,buy+price-fee);
+        for(int i=1;i<prices.size();i++){
+            sell = max(sell,prices[i]-buy-fee);
+
+            buy = min(buy,prices[i]-sell);
         }
         return sell;
     }
