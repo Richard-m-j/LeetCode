@@ -1,8 +1,6 @@
 class Solution {
 public:
     int minDistance(string word1, string word2) {
-        if(word1.length()<word2.length())
-            swap(word1,word2);
         int m = word1.size();
         int n = word2.size();
         
