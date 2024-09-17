@@ -1,6 +1,8 @@
 class Solution {
 public:
     int minDistance(string word1, string word2) {
+        ios::sync_with_stdio(0);
+        cin.tie(0);
         int m = word1.size();
         int n = word2.size();
         
