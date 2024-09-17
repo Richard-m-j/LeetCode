@@ -1,24 +1,22 @@
-int speedUp = []{
+int speedUp = [] {
     ios::sync_with_stdio(0);
     cin.tie(0);
     return 0;
 }();
 class StockSpanner {
 private:
-    stack<pair<int,int>> stack;
-    int size;
+    stack<pair<int, int>> stack;
+
 public:
-    StockSpanner() {
-        size = 0;
-    }
-    
+    StockSpanner() {}
+
     int next(int price) {
         int res = 1;
-        while(!stack.empty() && stack.top().first<=price){
-            res+=stack.top().second;
+        while (!stack.empty() && stack.top().first <= price) {
+            res += stack.top().second;
             stack.pop();
         }
-        stack.push({price,res});
+        stack.push({price, res});
         return res;
     }
 };
