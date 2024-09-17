@@ -3,13 +3,6 @@ public:
     int minFlips(int a, int b, int c) {
         int res = 0;
         while (a || b || c) {
-            // cout << (a & 1) << " " << (b & 1) << " " << (c & 1) << endl;
-            // if ((a & 1) && (b & 1) && !(c & 1))
-            //     res += 2;
-            // else if (!(a & 1) && !(b & 1) && (c & 1))
-            //     res++;
-            // else if()
-
             int op = ((a & 1)<<2) + ((b & 1)<<1) + (c & 1);
             switch(op){                
                 case 0:
@@ -24,7 +17,6 @@ public:
             a = a >> 1;
             b = b >> 1;
             c = c >> 1;
-            // cout << res << "\n";
         }
         return res;
     }
