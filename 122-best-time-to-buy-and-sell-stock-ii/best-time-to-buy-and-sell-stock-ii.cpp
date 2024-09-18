@@ -6,13 +6,17 @@ int speedUp = []{
 class Solution {
 public:
     int maxProfit(vector<int>& prices) {
-        int res=0;
-        for(int i=1;i<prices.size();i++){
-            int diff = prices[i]-prices[i-1];
-            if(diff>0)
-                res += diff;
+        int hold = INT_MIN;
+        int notHold = 0;
+
+        for(int i=0;i<prices.size();i++){
+            int prevHold = hold;
+            int prevNotHold = notHold;
+
+            hold = max(hold, prevNotHold - prices[i]);
+            notHold = max(notHold, prevHold + prices[i]);
         }
-        return res;
+        return notHold;
 
     }
 };
