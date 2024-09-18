@@ -1,10 +1,12 @@
 class Solution {
 public:
     string largestNumber(vector<int>& nums) {
+        ios::sync_with_stdio(0);
+        cin.tie(0);
         vector<string> numStrings;
-        bool foundZero = false;
         for(auto&num:nums)
             numStrings.push_back(to_string(num));
+
         sort(numStrings.begin(),numStrings.end(),[](auto& a, auto& b){
             return a+b > b+a;
         });
