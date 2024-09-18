@@ -9,7 +9,7 @@ public:
             for(int i=l;i<=r;i++){
                 maxPos = max(maxPos,nums[i]+i);
             }
-            cout<<maxPos<<" ";
+            // cout<<maxPos<<" ";
             jumps++;
             l=r;
             r=maxPos;
