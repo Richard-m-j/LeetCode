@@ -5,16 +5,16 @@ public:
         cin.tie(0);
         cout.tie(0);
         stack<char> stack;
-        for(auto &c: s){
-            if(c== '(' || c=='{' || c=='[')
+        for (auto& c : s) {
+            if (c == '(' || c == '{' || c == '[')
                 stack.push(c);
-            else if(stack.empty())
+            else if (stack.empty())
                 return false;
-            else if(c=='}' && stack.top() != '{')
+            else if (c == '}' && stack.top() != '{')
                 return false;
-            else if(c==')' && stack.top() != '(')
+            else if (c == ')' && stack.top() != '(')
                 return false;
-            else if(c==']' && stack.top() != '[')
+            else if (c == ']' && stack.top() != '[')
                 return false;
             else
                 stack.pop();
