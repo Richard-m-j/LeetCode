@@ -1,18 +1,15 @@
 class Solution {
 public:
-    vector<vector<int>> kSmallestPairs(vector<int>& nums1, vector<int>& nums2,
-                                       int k) {
+    vector<vector<int>> kSmallestPairs(vector<int>& nums1, vector<int>& nums2, int k) {
         ios::sync_with_stdio(0);
         cin.tie(0);
         vector<vector<int>> res;
-        priority_queue<pair<int, int>, vector<pair<int, int>>,
-                       greater<pair<int, int>>>
-            pq;
+        priority_queue<pair<int, int>, vector<pair<int, int>>, greater<pair<int, int>>> pq;
 
         for (int& num : nums1)
             pq.push({num + nums2[0], 0});
 
-        while (k-- && !pq.empty()) {
+        while (k--) {
             int sum = pq.top().first;
             int pos = pq.top().second;
             pq.pop();
