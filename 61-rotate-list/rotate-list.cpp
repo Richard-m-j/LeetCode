@@ -29,6 +29,5 @@ public:
         ListNode* newHead = slow->next;
         slow->next = nullptr;
         return newHead;
-        // return nullptr;
     }
 };
