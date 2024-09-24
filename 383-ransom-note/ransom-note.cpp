@@ -6,11 +6,9 @@ public:
             mp[c-'a']++;
         for(char& c: magazine)
             mp[c-'a']--;
-        for(int i=0;i<26;i++){
-            // cout<<mp[i]<<" ";
+        for(int i=0;i<26;i++)
             if(mp[i]>0)
                 return false;
-        }
         return true;
     }
 };
