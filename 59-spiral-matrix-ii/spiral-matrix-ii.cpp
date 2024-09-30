@@ -10,7 +10,7 @@ public:
         int dir = 0;
         while(num<n*n){
             num++;
-            cout<<x<<" "<<y<<endl;
+            // cout<<x<<" "<<y<<endl;
             mat[x][y] = num;
             int nextX = x + dirs[dir].first;
             int nextY = y + dirs[dir].second;
