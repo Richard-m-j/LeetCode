@@ -1,17 +1,15 @@
 class CustomStack {
 private: 
     vector<int> stack;
-    int n;
     int top;
 public:
     CustomStack(int maxSize) {
-        n=maxSize;
-        stack.resize(n,0);
+        stack.resize(maxSize,0);
         top = -1;
     }
     
     void push(int x) {
-        if(top != n-1){
+        if(top != stack.size()-1){
             top++;
             stack[top] = x;
         }
