@@ -6,10 +6,12 @@ int speedUp = []{
 class CustomStack {
 private: 
     vector<int> stack;
+    vector<int> inc;
     int top;
 public:
     CustomStack(int maxSize) {
         stack.resize(maxSize,0);
+        inc.resize(maxSize,0);
         top = -1;
     }
     
@@ -17,18 +19,25 @@ public:
         if(top != stack.size()-1){
             top++;
             stack[top] = x;
+            inc[top] = 0;
         }
     }
     
     int pop() {
-        if(top != -1)
-            return stack[top--];
+        if(top != -1){
+            int val = stack[top] + inc[top];
+            if(top>0)
+                inc[top - 1] += inc[top];
+            top--;
+            return val;
+        }
         return -1;
     }
     
     void increment(int k, int val) {
-        for(int i=0;i<min(k,top+1);i++)
-            stack[i]+=val;
+        int index = min(k-1,top);
+        if(index>=0)
+            inc[index] += val;
     }
 };
 
