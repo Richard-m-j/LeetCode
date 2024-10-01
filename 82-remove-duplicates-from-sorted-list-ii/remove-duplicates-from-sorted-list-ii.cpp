@@ -11,6 +11,8 @@
 class Solution {
 public:
     ListNode* deleteDuplicates(ListNode* head) {
+        ios::sync_with_stdio(0);
+        cin.tie(0);
         ListNode* dummy = new ListNode(101,head);
         ListNode* ptr = head;
         ListNode* prev = dummy;
