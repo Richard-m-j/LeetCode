@@ -6,12 +6,10 @@ public:
             totalSum += num;
         }
 
-        // Find the remainder when total sum is divided by p
         int rem = totalSum % p;
-        if (rem == 0) return 0; // If the remainder is 0, no subarray needs to be removed
-
+        if (rem == 0) return 0; 
         unordered_map<int, int> prefixMod;
-        prefixMod[0] = -1;  // Initialize for handling full prefix
+        prefixMod[0] = -1;  
         long prefixSum = 0;
         int minLength = nums.size();
 
@@ -20,7 +18,7 @@ public:
             int currentMod = prefixSum % p;
             int targetMod = (currentMod - rem + p) % p;
 
-            if (prefixMod.find(targetMod) != prefixMod.end()) {
+            if (prefixMod.count(targetMod)) {
                 minLength = min(minLength, i - prefixMod[targetMod]);
             }
 
