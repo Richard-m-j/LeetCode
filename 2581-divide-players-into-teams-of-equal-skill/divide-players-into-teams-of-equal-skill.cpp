@@ -1,6 +1,8 @@
 class Solution {
 public:
     long long dividePlayers(vector<int>& skill) {
+        ios::sync_with_stdio(0);
+        cin.tie(0);
         int n = skill.size();
         if(n<2)
             return -1;
