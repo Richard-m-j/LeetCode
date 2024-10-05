@@ -1,6 +1,8 @@
 class Solution {
 public:
     bool checkInclusion(string s1, string s2) {
+        ios::sync_with_stdio(0);
+        cin.tie(0);
         int n = s1.length();
         int m = s2.length();
         if (n > m)
