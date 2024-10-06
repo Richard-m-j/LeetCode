@@ -17,13 +17,13 @@ public:
                 temp += c;
         }
         b.push_back(temp), temp = "";
-        // removing common from front
-        while (a.size() != 0 && b.size() != 0 && (a.front() == b.front()))
+
+        while (a.size() && b.size() && (a.front() == b.front()))
             a.pop_front(), b.pop_front();
-        // removing common from back
-        while (a.size() != 0 && b.size() != 0 && (a.back() == b.back()))
+
+        while (a.size() && b.size() && (a.back() == b.back()))
             a.pop_back(), b.pop_back();
-        if (a.size() == 0 || b.size() == 0)
+        if (!a.size() || !b.size())
             return true;
         return false;
     }
