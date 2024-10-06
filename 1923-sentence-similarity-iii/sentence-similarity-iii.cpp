@@ -1,6 +1,8 @@
 class Solution {
 public:
     bool areSentencesSimilar(string s1, string s2) {
+        ios::sync_with_stdio(0);
+        cin.tie(0);
         string temp = "";
         deque<string> a, b;
         for (char c : s1) {
