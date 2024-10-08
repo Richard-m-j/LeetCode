@@ -10,7 +10,7 @@ public:
                 open++;
             while(i<r && open < close){
                 if(s[r] == '['){
-                    swap(s[i],s[r]);
+                    // swap(s[i],s[r]);
                     res++;
                     close--;
                     open++;
