@@ -1,6 +1,8 @@
 class Solution {
 public:
     int minSwaps(string s) {
+        ios::sync_with_stdio(0);
+        cin.tie(0);
         int open=0,close=0;
         int res=0,r=s.length()-1;
         for(int i=0;i<r;i++){
