@@ -3,7 +3,7 @@ public:
     int minSwaps(string s) {
         int open=0,close=0;
         int res=0,r=s.length()-1;
-        for(int i=0;i<s.length();i++){
+        for(int i=0;i<r;i++){
             if(s[i] == ']')
                 close++;
             if(s[i]=='[')
