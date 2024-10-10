@@ -12,7 +12,7 @@ public:
             if (it != mp.begin()) {
                 --it;
                 res = max(res, j - it->second);
-                cout<<j<<" "<<it->second<<endl;
+                // cout<<j<<" "<<it->second<<endl;
             }
             if(mp.begin()->first > nums[j])
                 mp[nums[j]] = j;
