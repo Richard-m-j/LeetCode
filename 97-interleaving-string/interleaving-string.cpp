@@ -1,6 +1,8 @@
 class Solution {
 public:
     bool isInterleave(string s1, string s2, string s3) {
+        ios::sync_with_stdio(0);
+        cin.tie(0);
         int m=s1.length(), n = s2.length(), l= s3.length();
         if(m+n!=l)
             return false;
