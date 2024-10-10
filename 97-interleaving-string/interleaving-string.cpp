@@ -14,7 +14,6 @@ public:
         dp[m][n] = true;
         for (int i = m - 1; i >= 0; --i)
             dp[i][n] = (s1[i] == s3[i + n]) && dp[i + 1][n];
-        
 
         for (int j = n - 1; j >= 0; --j) 
             dp[m][j] = (s2[j] == s3[m + j]) && dp[m][j + 1];
