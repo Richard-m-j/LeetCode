@@ -15,6 +15,8 @@ public:
                 res = max(res,i-s.top());
                 cout<<s.top()<<" "<<i<<endl;
                 s.pop();
+                if(s.empty())
+                    return res;
             }
         }
         return res;
