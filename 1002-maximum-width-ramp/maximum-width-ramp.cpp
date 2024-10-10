@@ -1,6 +1,8 @@
 class Solution {
 public:
     int maxWidthRamp(vector<int>& nums) {
+        ios::sync_with_stdio(0);
+        cin.tie(0);
         map<int,int> mp;
         int res = 0;
         mp[nums[0]] = 0;
