@@ -6,8 +6,9 @@ public:
         stack<int> s;
         int n = nums.size();
         int res=0;
-        for(int i=0;i<n;i++)
-            if(s.empty()||nums[s.top()]>nums[i])
+        s.push(0);
+        for(int i=1;i<n;i++)
+            if(nums[s.top()]>nums[i])
                 s.push(i);
         
         for(int i=n-1;i>=0;i--){
