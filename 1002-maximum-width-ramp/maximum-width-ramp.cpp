@@ -10,15 +10,15 @@ public:
             if(s.empty()||nums[s.top()]>nums[i])
                 s.push(i);
         
-        for(int i=n-1;i>=0;i--)
+        for(int i=n-1;i>=0;i--){
             while(!s.empty() && nums[s.top()]<=nums[i]){
                 res = max(res,i-s.top());
-                cout<<s.top()<<" "<<i<<endl;
+                // cout<<s.top()<<" "<<i<<endl;
                 s.pop();
-                if(s.empty())
-                    return res;
             }
-        
+            if(s.empty())
+                break;
+        }
         return res;
     }
 };
