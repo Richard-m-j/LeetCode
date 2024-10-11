@@ -5,23 +5,18 @@ private:
 public:
     vector<vector<int>> permute(vector<int>& nums) {
         int n = nums.size();
-        helper(nums, 0, n-1);
+        helper(nums, 0);
         return res;
     }
-    void helper(vector<int>& nums, int l, int h) {
-        if(l == h){
+    void helper(vector<int>& nums, int l) {
+        if (l == nums.size() - 1) {
             res.push_back(nums);
             return;
         }
-        for(int i=l;i<=h;i++){
-            swap(nums,i,l);
-            helper(nums,l+1,h);
-            swap(nums,l,i);
+        for (int i = l; i < nums.size(); i++) {
+            swap(nums[l], nums[i]);
+            helper(nums, l + 1);
+            swap(nums[l], nums[i]);
         }
-    }
-    void swap(vector<int>&nums, int i, int j){
-        int t= nums[i];
-        nums[i] = nums[j];
-        nums[j] = t;
     }
 };
