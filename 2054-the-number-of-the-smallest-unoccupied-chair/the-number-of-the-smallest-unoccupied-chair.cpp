@@ -1,6 +1,8 @@
 class Solution {
 public:
     int smallestChair(vector<vector<int>>& times, int targetFriend) {
+        ios::sync_with_stdio(0);
+        cin.tie(0);
         priority_queue<pair<int, int>> heap;
         int n = times.size();
         for (int i=0;i<n;i++)
