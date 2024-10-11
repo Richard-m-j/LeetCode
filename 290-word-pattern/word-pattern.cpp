@@ -1,6 +1,8 @@
 class Solution {
 public:
     bool wordPattern(string pattern, string s) {
+        ios::sync_with_stdio(0);
+        cin.tie(0);
         unordered_map<string, char> mp;
         unordered_map<char, string> rmp;
 
