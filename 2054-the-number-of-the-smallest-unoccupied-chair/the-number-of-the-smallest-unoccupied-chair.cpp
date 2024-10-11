@@ -13,20 +13,20 @@ public:
                 return a[1] < b[1];
             return a[0]<b[0];
             });
-        set<int> freeChairs;
+        priority_queue<int,vector<int>,greater<int>> freeChairs;
         for (int i = 0; i < n; i++) {
             int arrival = times[i][0];
             int leave = times[i][1];
             int index = times[i][2];
             while (!heap.empty() && arrival >= -(heap.top().first)){
                 // cout<<arrival<<" "<<-(heap.top().first)<<endl;
-                freeChairs.insert(heap.top().second);
+                freeChairs.push(heap.top().second);
                 heap.pop();
             }
             int chair;
             if (freeChairs.size()) {
-                chair = *freeChairs.begin();
-                freeChairs.erase(chair);
+                chair = freeChairs.top();
+                freeChairs.pop();
             } else {
                 chair = heap.size();
                 // cout<<heap.size()<<" ";
