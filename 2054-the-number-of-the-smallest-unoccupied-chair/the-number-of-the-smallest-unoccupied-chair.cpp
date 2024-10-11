@@ -5,9 +5,7 @@ public:
         cin.tie(0);
         priority_queue<pair<int, int>,vector<pair<int,int>>,greater<pair<int,int>>> heap;
         int n = times.size();
-        for (int i=0;i<n;i++)
-            times[i].push_back(i);
-
+        int ta = times[targetFriend][0];
         sort(times.begin(), times.end(),[](auto &a,auto &b){
             if(a[0]==b[0]) 
                 return a[1] < b[1];
@@ -17,7 +15,7 @@ public:
         for (int i = 0; i < n; i++) {
             int arrival = times[i][0];
             int leave = times[i][1];
-            int index = times[i][2];
+            // int index = times[i][2];
             while (!heap.empty() && arrival >= (heap.top().first)){
                 freeChairs.push(heap.top().second);
                 heap.pop();
@@ -30,7 +28,7 @@ public:
                 chair = heap.size();
             }
             heap.push({leave, chair});
-            if(index == targetFriend)
+            if(arrival == ta)
                 return chair;
         }
         return -1;
