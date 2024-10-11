@@ -3,7 +3,7 @@ public:
     int smallestChair(vector<vector<int>>& times, int targetFriend) {
         ios::sync_with_stdio(0);
         cin.tie(0);
-        priority_queue<pair<int, int>> heap;
+        priority_queue<pair<int, int>,vector<pair<int,int>>,greater<pair<int,int>>> heap;
         int n = times.size();
         for (int i=0;i<n;i++)
             times[i].push_back(i);
@@ -18,8 +18,7 @@ public:
             int arrival = times[i][0];
             int leave = times[i][1];
             int index = times[i][2];
-            while (!heap.empty() && arrival >= -(heap.top().first)){
-                // cout<<arrival<<" "<<-(heap.top().first)<<endl;
+            while (!heap.empty() && arrival >= (heap.top().first)){
                 freeChairs.push(heap.top().second);
                 heap.pop();
             }
@@ -29,9 +28,8 @@ public:
                 freeChairs.pop();
             } else {
                 chair = heap.size();
-                // cout<<heap.size()<<" ";
             }
-            heap.push({-leave, chair});
+            heap.push({leave, chair});
             if(index == targetFriend)
                 return chair;
         }
