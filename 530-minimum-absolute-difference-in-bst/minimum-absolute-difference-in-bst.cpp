@@ -16,22 +16,20 @@ int speedUp = []{
 }();
 class Solution {
 private:
-    vector<int> nums;
+    int res = INT_MAX;
+    int prev = -1;
 public:
     int getMinimumDifference(TreeNode* root) {
         inorder(root);
-        int res = abs(nums[0] - nums[1]);
-        for(int i=1;i<nums.size()-1;i++){
-            res = min(res, abs(nums[i] - nums[i+1]));
-            // cout<<nums[i]<<" ";
-        }
         return res;
     }
     void inorder(TreeNode* root){
         if(!root)
             return;
         inorder(root->left);
-        nums.push_back(root->val);
+        if(prev!=-1)
+            res = min(res,abs(root->val - prev));
+        prev = root->val;
         inorder(root->right);
     }
 };
