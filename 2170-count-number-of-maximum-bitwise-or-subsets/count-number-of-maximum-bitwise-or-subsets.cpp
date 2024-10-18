@@ -5,10 +5,9 @@ private:
     void helper(vector<int>& nums, int i, int bit){
         if(i==nums.size())
             return;
-        if((bit | nums[i]) == maxBit){
+        if((bit | nums[i]) == maxBit)
             res++;
-            // cout<<bit | nums[i]<<" ";
-        }
+    
         helper(nums,i+1,bit | nums[i]);
         helper(nums,i+1,bit);
     }
