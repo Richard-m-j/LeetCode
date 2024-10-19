@@ -1,6 +1,8 @@
 class Solution {
 public:
     char findKthBit(int n, int k) {
+        ios::sync_with_stdio(0);
+        cin.tie(0);
         string s = "0";
         while(s.length()<k){
             string naxtHalf = "";
