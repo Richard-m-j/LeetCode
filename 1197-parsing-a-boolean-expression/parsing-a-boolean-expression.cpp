@@ -2,6 +2,8 @@ class Solution {
 
 public:
     bool parseBoolExpr(string expression) {
+        ios::sync_with_stdio(0);
+        cin.tie(0);
         stack<char> st;
         for (auto& c : expression) {
             bool hasT = false;
@@ -32,7 +34,6 @@ public:
                 val = hasF?'f':'t';
             st.push(val);
         }
-        // cout<<st.top();
         return st.top() == 'f' ? false : true;
     }
 };
