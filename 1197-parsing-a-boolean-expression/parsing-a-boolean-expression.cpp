@@ -1,22 +1,12 @@
 class Solution {
 
 public:
-    void traverse_stack(stack<char>& st) {
-        if (st.empty())
-            return;
-        char x = st.top();
-        st.pop();
-        traverse_stack(st);
-        cout << x << " ";
-        st.push(x);
-    }
     bool parseBoolExpr(string expression) {
         stack<char> st;
         for (auto& c : expression) {
             bool hasT = false;
             bool hasF = false;
-            // traverse_stack(st);
-            // cout<<endl;
+
             if (c == ',')
                 continue;
             if (c != ')') {
