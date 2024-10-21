@@ -1,3 +1,8 @@
+int speed = []{
+    ios::sync_with_stdio(0);
+    cin.tie(0);
+    return 0;
+}();
 class Solution {
 private:
     unordered_set<string> subs;
