@@ -17,6 +17,8 @@ public:
 class Solution {
 public:
     Node* copyRandomList(Node* head) {
+        ios::sync_with_stdio(0);
+        cin.tie(0);
         
         Node *newHead = new Node(0);
         Node *ptr1 = newHead;
