@@ -7,23 +7,29 @@ class Solution {
 private:
     unordered_set<string> subs;
     int res = 0;
-    void dfs(string &s, int idx){
-        if(subs.size()>res)
-            res = subs.size();
-        if(idx>=s.length())
+        void dfs(const string &s, int idx, int uniqueCount) {
+        // Update result with the maximum unique split
+        res = max(res, uniqueCount);
+
+        if (idx >= s.length())
             return;
-        for(int i = idx;i<s.length();i++){
+        
+        // For substring exploration, avoid concatenating each time
+        for (int i = idx; i < s.length(); i++) {
+            // Check the substring directly using slicing (no need to concatenate manually)
             string curr = s.substr(idx, i - idx + 1);
-            if(!subs.count(curr)){
+            
+            if (!subs.count(curr)) {
                 subs.insert(curr);
-                dfs(s,i+1);
+                // Increase uniqueCount when we find a new unique substring
+                dfs(s, i + 1, uniqueCount + 1);
                 subs.erase(curr);
             }
         }
     }
 public:
     int maxUniqueSplit(string s) {
-        dfs(s,0);
+        dfs(s,0,0);
         return res;
     }
 };
