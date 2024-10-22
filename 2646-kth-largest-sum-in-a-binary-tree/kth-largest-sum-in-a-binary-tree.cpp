@@ -12,6 +12,8 @@
 class Solution {
 public:
     long long kthLargestLevelSum(TreeNode* root, int k) {
+        ios::sync_with_stdio(0);
+        cin.tie(0);
         priority_queue<long long,vector<long long>,greater<long long>> pq;
 
         queue<TreeNode*> q;
@@ -37,12 +39,7 @@ public:
         }
         if(pq.size() != k)
             return -1;
-        // long long res = pq.top();
-        // while(!pq.empty())
-        // {
-        //     res = pq.top();
-        //     pq.pop();
-        // }
+
         return pq.top();;
     }
 };
