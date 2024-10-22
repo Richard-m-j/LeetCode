@@ -15,8 +15,7 @@ public:
                     curr = i+1;
                     continue;
                 }
-                int left = st.top();
-                curr = min(curr,left);
+                curr = min(curr,st.top());
                 st.pop();
                 if(st.empty())
                     res = max(res,i-curr+1);
