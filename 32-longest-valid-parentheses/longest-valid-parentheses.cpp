@@ -1,7 +1,8 @@
 class Solution {
 public:
     int longestValidParentheses(string s) {
-        // )((()())
+        ios::sync_with_stdio(0);
+        cin.tie(0);
         stack<int> st;
         int curr = INT_MAX,res = 0;
         for(int i=0;i<s.length();i++){
