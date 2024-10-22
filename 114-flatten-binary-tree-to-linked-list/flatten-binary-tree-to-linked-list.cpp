@@ -16,7 +16,6 @@ private:
         if(!root)
             return;
         TreeNode *right = root->right;
-        TreeNode *left = root->left;
         ptr->right = root;
         ptr = ptr->right;
         helper(root->left);
