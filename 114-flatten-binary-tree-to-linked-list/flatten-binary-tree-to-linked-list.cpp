@@ -19,8 +19,9 @@ private:
         TreeNode *left = root->left;
         ptr->right = root;
         ptr = ptr->right;
+        helper(root->left);
         root->left = nullptr;
-        helper(left);
+
         helper(right);
     }
 public:
