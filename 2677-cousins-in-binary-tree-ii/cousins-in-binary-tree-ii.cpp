@@ -12,6 +12,9 @@
 class Solution {
 public:
     TreeNode* replaceValueInTree(TreeNode* root) {
+        ios::sync_with_stdio(0);
+        cin.tie(0);
+        
         root->val = 0;
         queue<TreeNode*> q;
         q.push(root);
