@@ -7,19 +7,12 @@ class Solution {
 
 public:
     int calculate(string s) {
-        ios::sync_with_stdio(0);
-        cin.tie(0);
         stack<char> charStack;
         stack<int> numStack;
         s = '(' + s + ')';
-        string s1="";
-        for(int i=0;i<s.length();i++){
-            if(s[i] != ' ')
-                s1 += s[i];
-        }
-        s = s1;
         for (int i = s.length() - 1; i >= 0; i--) {
-            // cout<<i<<" ";
+            if (s[i] == ' ')
+                continue;
             if (s[i] != '(') {
                 if(s[i] == '-' || s[i] == '+' || s[i] == ')')
                     charStack.push(s[i]);
@@ -32,7 +25,10 @@ public:
                 }
                 continue;    
             }
-            if(s[i+1] == '-'){
+            int next = i+1;
+            while(s[next] == ' ')
+                next++;
+            if(s[next] == '-'){
                 charStack.pop();
                 int num = -numStack.top();
                 numStack.pop();
