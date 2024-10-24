@@ -7,6 +7,8 @@ class Solution {
 
 public:
     int calculate(string s) {
+        ios::sync_with_stdio(0);
+        cin.tie(0);
         stack<char> charStack;
         stack<int> numStack;
         s = '(' + s + ')';
@@ -17,7 +19,7 @@ public:
         }
         s = s1;
         for (int i = s.length() - 1; i >= 0; i--) {
-            cout<<i<<" ";
+            // cout<<i<<" ";
             if (s[i] != '(') {
                 if(s[i] == '-' || s[i] == '+' || s[i] == ')')
                     charStack.push(s[i]);
