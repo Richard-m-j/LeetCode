@@ -7,23 +7,19 @@ public:
         sort(folder.begin(),folder.end());
         for(string& s:folder){
             string curr = "";
-            // cout<<s<<" ";
             bool isSubFolder = false;
             int i=0;
             while(i<s.length()){
                 curr += s[i++];
                 while(i<s.length() && s[i]!='/')
                     curr += s[i++];
-                // cout<<curr<<" ";
                 if(folderSet.count(curr)){
                     isSubFolder = true;
                     break;
                 } 
             }
-            if(!isSubFolder){
-                // cout<<s<<" ";
+            if(!isSubFolder)
                 folderSet.insert(s);
-            }
         }
         vector<string> res(folderSet.begin(),folderSet.end());
         return res;
