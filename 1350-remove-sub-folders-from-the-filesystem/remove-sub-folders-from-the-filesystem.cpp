@@ -25,10 +25,7 @@ public:
                 folderSet.insert(s);
             }
         }
-        vector<string> res;
-        for(auto& s:folderSet){
-            res.push_back(s);
-        }
+        vector<string> res(folderSet.begin(),folderSet.end());
         return res;
     }
 };
