@@ -7,7 +7,7 @@ public:
         sort(folder.begin(),folder.end());
         for(string& s:folder){
             string curr = "";
-            cout<<s<<" ";
+            // cout<<s<<" ";
             bool isSubFolder = false;
             int i=0;
             while(i<s.length()){
