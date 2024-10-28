@@ -13,7 +13,7 @@ public:
                 long long square = nums[i];
                 int len = 0;
                 while(s.count(square)){
-                    cout<<square<<" ";
+                    // cout<<square<<" ";
                     s.erase(square);
                     square *= square;
                     len++;
