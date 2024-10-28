@@ -1,6 +1,8 @@
 class Solution {
 public:
     int longestSquareStreak(vector<int>& nums) {
+        ios::sync_with_stdio(0);
+        cin.tie(0);
         sort(nums.begin(),nums.end());
         unordered_set<int> s;
         for(int & num: nums)
