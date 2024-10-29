@@ -1,6 +1,8 @@
 class Solution {
 public:
     int maxMoves(vector<vector<int>>& grid) {
+        ios::sync_with_stdio(0);
+        cin.tie(0);
         int m = grid.size();
         int n = grid[0].size();
 
@@ -26,11 +28,11 @@ public:
                 break;
         }
 
-        for(int i=0;i<m;i++){
-            for(int j=0;j<n;j++)
-                cout<<dp[i][j]<<" ";
-            cout<<endl;
-        }
+        // for(int i=0;i<m;i++){
+        //     for(int j=0;j<n;j++)
+        //         cout<<dp[i][j]<<" ";
+        //     cout<<endl;
+        // }
         return res;
     }
 };
