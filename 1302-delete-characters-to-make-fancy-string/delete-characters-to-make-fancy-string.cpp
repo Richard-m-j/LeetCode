@@ -9,9 +9,12 @@ public:
         string res = "";
         res += s[0];
         res += s[1];
+        int k=1;
         for(int i=2;i<s.length();i++)
-            if(s[i]!=res[res.length()-1]||s[i]!=res[res.length()-2])
+            if(s[i]!=res[k]||s[i]!=res[k-1]){
                 res+=s[i];
+                k++;
+            }
         return res;
     }
 };
