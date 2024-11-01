@@ -1,6 +1,8 @@
 class Solution {
 public:
     string makeFancyString(string s) {
+        ios::sync_with_stdio(0);
+        cin.tie(0);
         if(s.length()<3)
             return s;
         string res = "";
