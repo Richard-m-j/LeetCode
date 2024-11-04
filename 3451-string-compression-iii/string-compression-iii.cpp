@@ -1,6 +1,8 @@
 class Solution {
 public:
     string compressedString(string word) {
+        ios::sync_with_stdio(0);
+        cin.tie(0);
         int n=word.length();
         int i=1,count=1;
         char prev = word[0];
