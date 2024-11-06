@@ -1,6 +1,8 @@
 class Solution {
 public:
     bool canPartition(vector<int>& nums) {
+        ios::sync_with_stdio(0);
+        cin.tie(0);
         unordered_set<int> sumsSet;
         vector<int> sumsVector;
         long long totalSum = accumulate(nums.begin(),nums.end(),0);
