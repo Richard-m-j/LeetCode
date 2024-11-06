@@ -1,6 +1,8 @@
 class Solution {
 public:
     vector<int> findAnagrams(string s, string p) {
+        ios::sync_with_stdio(0);
+        cin.tie(0);
         vector<int> mp1(26, 0);
         for (char& c : p)
             mp1[c - 'a']++;
