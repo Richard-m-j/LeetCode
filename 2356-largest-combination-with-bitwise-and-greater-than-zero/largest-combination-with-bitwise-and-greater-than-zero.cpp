@@ -10,8 +10,8 @@ public:
             for(int i=0;i<candidates.size();i++)
                 if(bit & candidates[i])
                     len++;
-            
-            res = max(res,len);
+            if(len>res)
+                res = len;
 
             bit = bit<<1;
         }
