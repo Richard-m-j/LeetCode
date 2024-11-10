@@ -21,6 +21,8 @@ private:
 
 public:
     int minimumSubarrayLength(vector<int>& nums, int k) {
+        ios::sync_with_stdio(0);
+        cin.tie(0);
         int n = nums.size();
         int res = n + 1;
         vector<int> bits(32, 0);
