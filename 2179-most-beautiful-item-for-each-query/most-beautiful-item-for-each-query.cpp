@@ -1,6 +1,8 @@
 class Solution {
 public:
     vector<int> maximumBeauty(vector<vector<int>>& items, vector<int>& queries) {
+        ios::sync_with_stdio(0);
+        cin.tie(0);
         sort(items.begin(),items.end());
         map<int,int> mp;
         int maxBeauty = items[0][1];
