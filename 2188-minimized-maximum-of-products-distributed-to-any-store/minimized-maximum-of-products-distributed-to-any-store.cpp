@@ -9,7 +9,7 @@ public:
             for(int i=0;i<quantities.size();i++){
                 numDistributions += ceil(quantities[i]/float(m));
             }
-            cout<<m<<" "<<numDistributions<<endl;
+            // cout<<m<<" "<<numDistributions<<endl;
             // if(numDistributions==n)
             //     return m;
             if(numDistributions<=n)
