@@ -4,6 +4,7 @@ public:
         ios::sync_with_stdio(0);
         cin.tie(0);
         vector<vector<int>> mat(m,vector<int>(n,0));
+        vector<pair<int,int>> dirs = {{0,-1},{0,1},{1,0},{-1,0}};
         //0 empty
         //1 guarded
         //2 wall
@@ -15,7 +16,6 @@ public:
             mat[guard[0]][guard[1]]=3;
         int count=0;
         for(auto& guard: guards){
-            vector<pair<int,int>> dirs = {{0,-1},{0,1},{1,0},{-1,0}};
             for(auto& dir: dirs){
                 int i=guard[0] + dir.first;
                 int j=guard[1] + dir.second;
@@ -31,11 +31,6 @@ public:
                 }
             }
         }
-        // int res = 0;
-        // for(int i=0;i<m;i++)
-        //     for(int j=0;j<n;j++)
-        //         if(mat[i][j] == 0)
-        //             res++;
         return m*n - walls.size() - guards.size() - count;
     }
 };
