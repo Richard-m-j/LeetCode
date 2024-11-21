@@ -1,17 +1,19 @@
 class Solution {
 public:
     int countUnguarded(int m, int n, vector<vector<int>>& guards, vector<vector<int>>& walls) {
+        ios::sync_with_stdio(0);
+        cin.tie(0);
         vector<vector<int>> mat(m,vector<int>(n,0));
         //0 empty
         //1 guarded
         //2 wall
         //3 guard
-        for(auto& wall: walls){
+        for(auto& wall: walls)
             mat[wall[0]][wall[1]]=2;
-        }
-        for(auto& guard: guards){
+        
+        for(auto& guard: guards)
             mat[guard[0]][guard[1]]=3;
-        }
+        
         for(auto& guard: guards){
             vector<pair<int,int>> dirs = {{0,-1},{0,1},{1,0},{-1,0}};
             for(auto& dir: dirs){
