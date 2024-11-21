@@ -13,7 +13,7 @@ public:
         
         for(auto& guard: guards)
             mat[guard[0]][guard[1]]=3;
-        
+        int count=0;
         for(auto& guard: guards){
             vector<pair<int,int>> dirs = {{0,-1},{0,1},{1,0},{-1,0}};
             for(auto& dir: dirs){
@@ -22,18 +22,20 @@ public:
                 while(i>=0 && j>=0 && i<m && j<n){
                     if(mat[i][j]>1)
                         break;
-                    if(mat[i][j] == 0)
+                    if(mat[i][j] == 0){
                         mat[i][j] = 1;
+                        count++;
+                    }
                     i += dir.first;
                     j += dir.second;
                 }
             }
         }
-        int res = 0;
-        for(int i=0;i<m;i++)
-            for(int j=0;j<n;j++)
-                if(mat[i][j] == 0)
-                    res++;
-        return res;
+        // int res = 0;
+        // for(int i=0;i<m;i++)
+        //     for(int j=0;j<n;j++)
+        //         if(mat[i][j] == 0)
+        //             res++;
+        return m*n - walls.size() - guards.size() - count;
     }
 };
