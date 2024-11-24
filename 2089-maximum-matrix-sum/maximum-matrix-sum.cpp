@@ -11,21 +11,24 @@ public:
             int minIdx = 0;
             int countRow = 0;
             for (int j = 0; j < n; j++) {
-                if (matrix[i][j] < 0) 
+                if (matrix[i][j] < 0) {
+                    matrix[i][j] *= -1;
                     countRow++;
-                
-                if (abs(matrix[i][j]) < abs(matrix[x][y])){
+                }
+                if (matrix[i][j] < matrix[x][y]){
                     x = i;
                     y = j;
                 }
-                res += abs(matrix[i][j]);
+                res += matrix[i][j];
             }
             if (countRow % 2)
                 countCol++;
         }
-        if (countCol % 2) 
-            res -= abs(matrix[x][y]) * 2;
-        
+        //14 13 7
+        // cout<<res<<" ";
+        if (countCol % 2) {
+            res -= matrix[x][y] * 2;
+        }
         return res;
     }
 };
