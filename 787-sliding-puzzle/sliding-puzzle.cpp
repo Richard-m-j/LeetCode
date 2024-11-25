@@ -1,16 +1,7 @@
 class Solution {
 private:
-    // Map each tile to its goal position for heuristic calculation (Manhattan Distance)
-    vector<vector<int>> goalPos = {
-        {1, 2}, 
-        {0, 0}, 
-        {0, 1}, 
-        {0, 2}, 
-        {1, 0}, 
-        {1, 1}  
-    };
+    vector<vector<int>> goalPos = {{1, 2}, {0, 0}, {0, 1}, {0, 2}, {1, 0}, {1, 1}};
 
-    // Convert a board to string for easier handling
     string boardToString(vector<vector<int>>& board) {
         string s = "";
         for (int i = 0; i < 2; i++) {
@@ -20,8 +11,6 @@ private:
         }
         return s;
     }
-
-    // Convert a string back to a 2D board
     vector<vector<int>> stringToBoard(string s) {
         vector<vector<int>> board(2, vector<int>(3, 0));
         for (int i = 0; i < 2; i++) {
@@ -68,8 +57,8 @@ private:
 
 public:
     int slidingPuzzle(vector<vector<int>>& board) {
-        unordered_set<string> visited; // Visited set to avoid reprocessing states
-        string goal = "123450"; // Goal state
+        unordered_set<string> visited;
+        string goal = "123450";
         string boardString = boardToString(board);
 
         priority_queue<pair<int, pair<int, string>>, vector<pair<int, pair<int, string>>>, greater<>> pq;
