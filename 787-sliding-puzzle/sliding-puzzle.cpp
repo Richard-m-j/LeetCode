@@ -1,3 +1,8 @@
+int speedUp=[]{
+    ios::sync_with_stdio(0);
+    cin.tie(0);
+    return 0;
+}();
 class Solution {
 private:
     vector<vector<int>> goalPos = {{1, 2}, {0, 0}, {0, 1}, {0, 2}, {1, 0}, {1, 1}};
