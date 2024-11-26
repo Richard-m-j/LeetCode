@@ -4,7 +4,7 @@ public:
         ios::sync_with_stdio(0);
         cin.tie(0);
         vector<int> indegree(n,0);
-        for(auto edge: edges)
+        for(const vector<int>& edge: edges)
             indegree[edge[1]]++;
         int champion=-1;
         for(int i=0;i<n;i++)
