@@ -1,7 +1,8 @@
 class Solution {
 public:
     int findChampion(int n, vector<vector<int>>& edges) {
-        
+        ios::sync_with_stdio(0);
+        cin.tie(0);
         vector<int> indegree(n,0);
         for(auto edge: edges)
             indegree[edge[1]]++;
