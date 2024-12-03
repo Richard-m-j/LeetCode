@@ -11,7 +11,7 @@ public:
                 res[k++] = ' ';
                 j++;
             }
-            res[k++] =s [i];
+            res[k++] =s[i];
             i++;
         }
         return string(res,l);
