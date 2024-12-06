@@ -13,7 +13,7 @@ public:
                 break;
             sum+=i;
             res++;
-            cout<<i<<" ";
+            // cout<<i<<" ";
         }
         return res;
     }
