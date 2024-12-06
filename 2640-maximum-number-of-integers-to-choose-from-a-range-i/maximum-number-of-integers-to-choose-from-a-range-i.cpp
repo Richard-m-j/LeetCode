@@ -11,9 +11,9 @@ public:
         for(int i=1;i<=n;i++){
             if(ban.count(i))
                 continue;
-            if(sum+i>maxSum)
+            maxSum -= i;
+            if(maxSum<0)
                 break;
-            sum+=i;
             res++;
             // cout<<i<<" ";
         }
