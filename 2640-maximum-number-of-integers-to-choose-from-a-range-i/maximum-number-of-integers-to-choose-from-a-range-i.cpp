@@ -1,6 +1,8 @@
 class Solution {
 public:
     int maxCount(vector<int>& banned, int n, int maxSum) {
+        ios::sync_with_stdio(0);
+        cin.tie(0);
         unordered_set<int> ban;
         for(int& a: banned)
             ban.insert(a);
