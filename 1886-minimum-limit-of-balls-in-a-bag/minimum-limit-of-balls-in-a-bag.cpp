@@ -1,6 +1,8 @@
 class Solution {
 public:
     int minimumSize(vector<int>& nums, int maxOps) {
+        ios::sync_with_stdio(0);
+        cin.tie(0);
         int l = 1, r = *max_element(nums.begin(), nums.end());
         while (l < r) {
             int m = l + (r - l) / 2;
