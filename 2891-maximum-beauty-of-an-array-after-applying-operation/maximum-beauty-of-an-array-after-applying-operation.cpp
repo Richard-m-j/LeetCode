@@ -10,7 +10,6 @@ public:
             while(r<n && abs(nums[r]-nums[l])<=k2){
                 r++;
             }
-            // cout<<l<<" "<<r<<endl;
             res=max(res,r-l);
             l++;
         }
