@@ -1,6 +1,8 @@
 class Solution {
 public:
     long long pickGifts(vector<int>& gifts, int k) {
+        ios::sync_with_stdio(0);
+        cin.tie(0);
         priority_queue<int> pq;
         for(int& gift: gifts)
             pq.push(gift);
