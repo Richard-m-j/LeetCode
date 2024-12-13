@@ -1,26 +1,17 @@
 class Solution {
 public:
     long long findScore(vector<int>& nums) {
-        ios::sync_with_stdio(0);
-        cin.tie(0);
-        priority_queue<pair<int, int>, vector<pair<int, int>>, greater<>> pq;
-        int n = nums.size();
-        for (int i = 0; i < n; i++)
-            pq.push({nums[i], i});
-        unordered_set<int> marked;
-        long long res = 0;
-        while (marked.size() != n && !pq.empty()) {
-            auto [num, idx] = pq.top();
-            pq.pop();
-            if (marked.count(idx))
-                continue;
-            res += num;
-            marked.insert(idx);
-            if (idx - 1 >= 0)
-                marked.insert(idx - 1);
-            if (idx + 1 < n)
-                marked.insert(idx + 1);
+        long long ans = 0;
+        set<pair<int, int>> st;
+        for(int i = 0; i < nums.size(); ++i){ st.insert({nums[i], i}); }
+        for(auto s: st){
+            if(nums[s.second]) {
+                nums[s.second] = 0;
+                if(s.second - 1 >= 0) nums[s.second - 1] = 0;
+                if(s.second + 1 < nums.size()) nums[s.second + 1] = 0;
+                ans += s.first;
+            }
         }
-        return res;
+        return ans;
     }
 };
