@@ -1,16 +1,20 @@
 class Solution {
 public:
-    int minimumSize(vector<int>& nums, int maxOps) {
-        ios::sync_with_stdio(0);
-        cin.tie(0);
-        int l = 1, r = *max_element(nums.begin(), nums.end());
-        while (l < r) {
-            int m = l + (r - l) / 2;
-            int ops = 0;
-            for (int n : nums)
-                if ((ops += (n - 1) / m) > maxOps)
+    int minimumSize(vector<int>& nums, int maxOperations) {
+        int l=1,r=*max_element(nums.begin(),nums.end());
+        int n=nums.size();
+        while(l<r){
+            int m = l + (r-l)/2;
+            int numOps = 0;
+            for(int& num: nums){
+                numOps += (num-1)/m;
+                if(numOps>maxOperations)
                     break;
-            ops <= maxOps ? r = m : l = m + 1;
+            }
+            if(numOps<=maxOperations)
+                r=m;
+            else
+                l=m+1;
         }
         return r;
     }
