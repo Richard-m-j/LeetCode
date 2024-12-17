@@ -4,38 +4,39 @@ public:
         vector<int> freq(26,0);
         for(char& c: s)
             freq[c-'a']++;
-        priority_queue<pair<char,int>> pq;
-        for(int i=0;i<26;i++)
-            if(freq[i])
-                pq.push({'a'+i,freq[i]});
-        char prev = '\0';
         string res="";
-        while(!pq.empty()){
-            auto [node,f]=pq.top();
-            pq.pop();
-            if(node == prev){
-                // cout<<"* "<<prev<<" "<<node<<endl;
-                if(pq.empty())
+        int i=25,prev=-1;
+        while(true){
+            int idx=-1;
+            for(i=25;i>=0;i--)
+                if(freq[i]){
+                    idx = i;
                     break;
-                auto [newNode,newF] = pq.top();
-                pq.pop();
-                pq.push({node,f});
-                res+=newNode;
-                newF--;
-                if(newF)
-                    pq.push({newNode,newF});
-                prev = newNode;
+                }
+            if(idx == -1)
+                break;
+            if(idx==prev){
+                // cout<<res<<" "<<idx<<" ";
+                for(i=idx-1;i>=0;i--)
+                    if(freq[i]){
+                        idx = i;
+                        break;
+                    }
+                if(i == -1){
+                    cout<<idx<<" ";
+                    break;}
+                char node = char('a'+idx);
+                res += node;
+                freq[idx]--;
+                prev = idx;
                 continue;
             }
-            int l = min(repeatLimit,f);
-            for(int i=0;i<l;i++)
-                res += node;
-            f-=l;
-            if(f)
-                pq.push({node,f});
-            // cout<<res<<" "<<prev<<endl;
-            
-            prev = node;
+            int l = min(repeatLimit,freq[idx]);
+            char node = char('a'+idx);
+            freq[idx] -= l;
+            for(int j=0;j<l;j++)
+                res+=node;
+            prev = idx;
         }
         return res;
     }
