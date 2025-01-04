@@ -9,7 +9,7 @@ public:
                 firstIndex[s[i]-'a'] = i;
             lastIndex[s[i]-'a'] = max(lastIndex[s[i]-'a'],i);            
         }
-        
+         
         int res=0;
         for(int i=0;i<26;i++){
             if(firstIndex[i] == -1 || lastIndex[i]==-1)
