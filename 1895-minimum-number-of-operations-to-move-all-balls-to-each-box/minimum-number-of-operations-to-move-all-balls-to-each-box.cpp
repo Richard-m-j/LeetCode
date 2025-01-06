@@ -15,10 +15,9 @@ public:
             numOnes+=boxes[i]-'0';
         }
         vector<int> res(n);
-        for(int i=0;i<n;i++){
+        for(int i=0;i<n;i++)
             res[i] = left[i]+right[i];
-            // cout<<left[i]<<" "<<right[i]<<endl;
-        }
+        
         return res;
     }
 };
