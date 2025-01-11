@@ -19,11 +19,9 @@ public:
     int findTargetSumWays(vector<int>& nums, int target) {
         int total = accumulate(nums.begin(), nums.end(), 0);
 
-        // If the target is outside the possible range, return 0.
         if (abs(target) > total)
             return 0;
 
-        // Initialize dp with an offset to handle negative sums.
         int offset = total;
         dp.resize(nums.size(), vector<int>(2 * total + 1, -1));
 
