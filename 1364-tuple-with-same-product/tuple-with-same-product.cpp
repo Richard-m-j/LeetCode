@@ -9,7 +9,7 @@ public:
             }
         }
         int res=0;
-        for(auto& it: mp){
+        for(const pair<int,int>& it: mp){
             if(it.second>1)
                 res += it.second*(it.second-1)*4;
         }
