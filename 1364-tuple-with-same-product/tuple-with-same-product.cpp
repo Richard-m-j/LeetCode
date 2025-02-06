@@ -3,6 +3,8 @@ public:
     int tupleSameProduct(vector<int>& nums) {
         ios::sync_with_stdio(0);
         cin.tie(0);
+        cout.tie(0);
+        
         // sort(nums.begin(),nums.end());
         unordered_map<int,int> mp;
         int res = 0;
