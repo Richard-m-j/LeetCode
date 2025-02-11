@@ -6,7 +6,7 @@ public:
             st.push(s[i]);
             stack<char> temp;
             int j=part.length()-1;
-            while(j>-1 && i>=j && !st.empty()){
+            while(j>-1 && !st.empty()){
                 if(st.top()!=part[j])
                     break;
                 temp.push(st.top());
