@@ -1,6 +1,8 @@
 class Solution {
 public:
     int maximumSum(vector<int>& nums) {
+        ios::sync_with_stdio(0);
+        cin.tie(0);
         int res = -1;
         unordered_map<int,int> mp;
         for(int i=0;i<nums.size();i++){
