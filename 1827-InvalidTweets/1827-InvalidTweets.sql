@@ -1,0 +1,5 @@
+-- Last updated: 7/24/2025, 8:25:53 AM
+# Write your MySQL query statement below
+select tweet_id 
+from Tweets
+where length(content) > 15
